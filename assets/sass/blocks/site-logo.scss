@@ -1,0 +1,29 @@
+.site-logo {
+  display: inline-flex;
+  align-items: flex-start;
+  font-weight: 600;
+}
+
+.site-logo:hover,
+.site-logo:focus {
+  text-decoration: none;
+}
+
+.site-logo__img {
+  flex-shrink: 0;
+  border-radius: 10px;
+  margin-right: 5px;
+}
+
+.site-logo__name {
+  padding-top: 7px;
+  font-size: 32px;
+  line-height: 1.3;
+  color: $primary;
+}
+
+.site-logo__descr {
+  font-size: 9px;
+  color: #90c97f;
+  text-align: center;
+}

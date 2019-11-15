@@ -1,0 +1,9 @@
+.advantages-list {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.advantages-list__item {
+  width: calc(100% / 7);
+}

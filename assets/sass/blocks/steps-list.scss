@@ -1,0 +1,32 @@
+.steps-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.steps-list__item {
+  width: 290px;
+  margin-right: calc((100% - 290px * 3) / 2);
+  margin-bottom: 50px;
+}
+
+.steps-list__item:nth-child(3n) {
+  margin-right: 0;
+}
+
+.steps-list__item::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 100%;
+  width: 159px;
+  height: 17px;
+  background-repeat: no-repeat;
+  background-image: url("../images/next-step.png");
+  opacity: 0.3;
+}
+
+.steps-list__item:nth-child(3n)::after {
+  display: none;
+}

@@ -1,0 +1,42 @@
+.btn {
+  font-size: inherit;
+  line-height: inherit;
+  border-radius: 5px;
+  transition: 0.25s;
+
+  &--call,
+  &--question {
+    max-width: 195px;
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    padding: 14px 30px;
+    font-weight: 600;
+
+    &::before {
+      content: "";
+      flex-shrink: 0;
+      margin-right: 8px;
+      background-repeat: no-repeat;
+      background-size: contain;
+    }
+  }
+}
+
+.btn--call::before {
+  width: 12px;
+  height: 12px;
+  background-image: url("../images/btn-call-icon.svg");
+}
+
+.btn--question::before {
+  width: 14px;
+  height: 14px;
+  background-image: url("../images/btn-question-icon.svg");
+}
+
+.btn-success,
+.btn-outline-success:hover,
+.btn-outline-success:not(:disabled):not(.disabled):active{
+  color: #ffffff;
+}
