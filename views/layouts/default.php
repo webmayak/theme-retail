@@ -39,8 +39,26 @@ $this->beginPage();
         header {
             border-bottom: 1px solid #f7f7f7;
         }
+        ul {
+            list-style-position: inside;
+            list-style-type: disc;
+            padding-left: 0;
+        }
+        ul li {
+            margin-top: 3px;
+        }
+        ul ul {
+            padding-left: 20px;
+            margin: 6px 0;
+        }
+        .row > .empty {
+            padding: 0 15px;
+        }
+        .breadcrumb {
+            margin-top: 20px;
+        }
         footer {
-            margin-top: calc(100vh - 492px);
+            margin-top: 30px;
         }
         .footer__middle {
             padding: 40px 0;
