@@ -36,8 +36,9 @@ $this->beginPage();
     <?php $this->head() ?>
     <style>
         <?= Yii::$app->settings->get('css', 'default') ?>
-        header {
-            border-bottom: 1px solid #f7f7f7;
+        .megamenu {
+            -webkit-box-shadow: none;
+            box-shadow: none;
         }
         ul {
             list-style-position: inside;
@@ -78,9 +79,7 @@ $this->beginPage();
 <?php $this->beginBody() ?>
 <?= $this->render('_header') ?>
 
-<?php if (0) : ?>
 <?= MegaMenu::widget() ?>
-<?php endif; ?>
 
 <div class="wrap">
     <?= TwigRender::widget([

@@ -1,9 +1,4 @@
 .btn {
-  font-size: inherit;
-  line-height: inherit;
-  border-radius: 5px;
-  transition: 0.25s;
-
   &--call,
   &--question {
     max-width: 195px;
@@ -19,6 +14,18 @@
       margin-right: 8px;
       background-repeat: no-repeat;
       background-size: contain;
+    }
+  }
+
+  &--video {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 25px;
+
+    .fa {
+      font-size: 12px;
+      margin-left: 8px;
     }
   }
 }
@@ -40,3 +47,37 @@
 .btn-outline-success:not(:disabled):not(.disabled):active{
   color: #ffffff;
 }
+
+.btn-lg {
+  min-width: 195px;
+}
+
+@media (max-width: 1199px) and (min-width: 992px) {
+  .btn {
+    &--call,
+    &--question {
+      padding: 14px 10px;
+      justify-content: center;
+
+      &::before {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .btn--video {
+    display: none;
+  }
+}
+
+@media (max-width: 991px) {
+  .btn {
+    &--call,
+    &--question {
+      display: inline-flex;
+    }
+  }
+}
+

@@ -1,17 +1,35 @@
 .why-us {
-  padding: 70px 0 40px;
+  padding: 70px 0 10px;
   background-repeat: no-repeat;
   background-image: url("../images/why-us-bg.png");
   text-align: center;
+
+  h1 {
+    font-size: 48px;
+    margin-bottom: 35px;
+
+    &::after {
+      display: none;
+    }
+  }
 }
 
-.why-us__title-big {
-  font-size: 48px;
-  line-height: 1;
-  font-weight: bold;
-  margin: 0 0 35px;
+.why-us__item {
+  margin-bottom: 30px;
 }
 
-.why-us__title {
-  margin-bottom: 60px;
+@media (max-width: 767px) {
+  .why-us {
+    h1 {
+      font-size: 42px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .why-us {
+    h1 {
+      font-size: 34px;
+    }
+  }
 }

@@ -2,10 +2,6 @@
   padding: 40px 0;
 }
 
-.cities-block__title {
-  margin-bottom: 50px;
-}
-
 .cities-block__list {
   ul {
     list-style: none;
@@ -28,6 +24,22 @@
 
     &:hover {
       text-decoration: none;
+    }
+  }
+}
+
+@media (max-width: 991px) {
+  .cities-block__list {
+    ul {
+      column-count: 3;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .cities-block__list {
+    ul {
+      column-count: 2;
     }
   }
 }

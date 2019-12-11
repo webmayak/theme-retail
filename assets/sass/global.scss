@@ -1,8 +1,23 @@
-body {
-  font-family: "SegoeUI", Arial, sans-serif;
-  font-size: 14px;
-  line-height: 1.4;
-  color: $text;
+h1,
+h2 {
+  font-size: 42px;
+  line-height: 1.15;
+  text-align: center;
+  word-break: break-word;
+  font-weight: bold;
+  position: relative;
+  margin: 0 0 60px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 60px;
+    height: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -20px;
+    background-color: $success;
+  }
 }
 
 .ul-reset {
@@ -13,4 +28,184 @@ body {
 
 .light-bg {
   background-color: #f8f8f8;
+}
+
+.row-10 {
+  margin-right: -5px;
+  margin-left: -5px;
+
+  > [class^="col"] {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+}
+
+.owl-nav {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+
+  > button {
+    position: absolute;
+    transform: translateY(-50%);
+    transition: 0.25s;
+
+    &:hover,
+    &:focus {
+      opacity: 0.5;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .owl-prev {
+    left: calc((100% - 1110px) / 2 - 200px);
+  }
+
+  .owl-next {
+    right: calc((100% - 1110px) / 2 - 200px);
+    transform: translateY(-50%) scale(-1);
+  }
+
+  svg {
+    fill: $success;
+  }
+}
+
+.owl-dots {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.owl-dot {
+  margin: 0 5px;
+  transition: 0.25s;
+
+  &:hover,
+  &:focus {
+    opacity: 0.5;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  span {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #d9d9d9;
+  }
+
+  &.active {
+    span {
+      background-color: $success;
+    }
+  }
+}
+
+.page-link {
+  border-radius: 50%;
+  text-align: center;
+  min-width: 33px;
+  font-weight: 600;
+
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+
+  .fa {
+    font-size: 22px;
+    color: $success;
+    width: 43px;
+    height: 43px;
+    line-height: 41px;
+    border: 1px solid $success;
+    border-radius: 50%;
+    text-align: center;
+    position: relative;
+    top: 2px;
+  }
+}
+
+.page-item{
+  &:first-child {
+    margin-right: auto;
+
+    .fa {
+      margin-right: 5px;
+    }
+  }
+
+  &:last-child {
+    margin-left: auto;
+
+    .fa {
+      margin-left: 5px;
+    }
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+     transform: translate(-50%, -50%) scale(1);
+     opacity: 0.7;
+  }
+}
+
+@media (max-width: 1599px) {
+  .owl-nav {
+    .owl-prev {
+      left: -20px;
+    }
+
+    .owl-next {
+      right: -20px;
+    }
+
+    svg {
+      width: 30px;
+      height: 30px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 36px;
+  }
+}
+
+@media (max-width: 575px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  .page-item{
+    &:first-child,
+    &:last-child {
+      font-size: 0;
+    }
+  }
+
+  .page-link .fa {
+    top: 0;
+  }
 }

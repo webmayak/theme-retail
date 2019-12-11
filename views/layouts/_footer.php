@@ -25,49 +25,49 @@ use yii\web\View;
                         <div class="footer__social-title">Социальные сети</div>
                         <ul>
                             <li>
-                                <a class="footer__social-link footer__social-link--vk" href="<?= Yii::$app->contactsManager->get('social_vkontakte') ?>" target="_blank">
+                                <a class="social-link social-link--vk" href="<?= Yii::$app->contactsManager->get('social_vkontakte') ?>" target="_blank">
                                     <span class="sr-only">ВКонтакте</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-vk">
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="footer__social-link footer__social-link--fb" href="<?= Yii::$app->contactsManager->get('social_facebook') ?>" target="_blank">
+                                <a class="social-link social-link--fb" href="<?= Yii::$app->contactsManager->get('social_facebook') ?>" target="_blank">
                                     <span class="sr-only">Facebook</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-fb">
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="footer__social-link footer__social-link--youtube" href="<?= Yii::$app->contactsManager->get('social_youtube') ?>" target="_blank">
+                                <a class="social-link social-link--youtube" href="<?= Yii::$app->contactsManager->get('social_youtube') ?>" target="_blank">
                                     <span class="sr-only">YouTube</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-youtube">
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="footer__social-link footer__social-link--instargam" href="<?= Yii::$app->contactsManager->get('social_instagram') ?>" target="_blank">
+                                <a class="social-link social-link--instargam" href="<?= Yii::$app->contactsManager->get('social_instagram') ?>" target="_blank">
                                     <span class="sr-only">Instargam</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-instargam">
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="footer__social-link footer__social-link--ok" href="#" target="_blank">
+                                <a class="social-link social-link--ok" href="#" target="_blank">
                                     <span class="sr-only">OK</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-ok">
                                     </svg>
                                 </a>
                             </li>
                             <li>
-                                <a class="footer__social-link footer__social-link--tw" href="#" target="_blank">
+                                <a class="social-link social-link--tw" href="#" target="_blank">
                                     <span class="sr-only">Twitter</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                                         <use xlink:href="/images/sprite.svg#icon-tw">
                                     </svg>
                                 </a>
