@@ -60,9 +60,6 @@ use yii\web\View;
     </div>
 </div>
 
-<?= $this->render('@theme/views/_fast-consult') ?>
-<br/>
-
 <?= LeadForm::widget([
     'key' => 'question-row',
     'mode' => LeadForm::MODE_INLINE,

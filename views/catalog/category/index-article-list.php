@@ -70,5 +70,3 @@ $this->params['breadcrumbs'][] = $model->name;
         </div>
     </div>
 <?php endif; ?>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

@@ -20,7 +20,7 @@ $description = preg_replace('/\n+/', ' ', $description);
 $description = preg_replace('/\s+/', ' ', $description);
 $description = mb_substr($description, 0, 300, 'utf-8') . (mb_strlen($description, 'utf-8') > 300 ? '...' : '');
 
-$title = "{$model->name} - ИНДИАВИР";
+$title = $model->name;
 
 Yii::$app->opengraph->set([
     'title' => $title,
@@ -62,5 +62,3 @@ $this->params['breadcrumbs'][] = $model->name;
     </div>
     <?php endif; ?>
 </div>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

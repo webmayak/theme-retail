@@ -64,42 +64,6 @@ $this->params['breadcrumbs'][] = $model->name;
                     <?= nl2br($announce) ?>
                 </div>
                 <?php endif; ?>
-                <div class="catalog-item__prices">
-                    <div class="row">
-                        <?php if ($price_prepay = $model->present()->getAttributeValueByKey('price_prepay')): ?>
-                        <div class="col-xs-6">
-                            <div class="catalog-item__price">
-                                <span class="price-label">Цена по предоплате:</span>
-                                <span class="price-value"><?= $price_prepay ?></span>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                        <?php if ($price_afterpay = $model->present()->getAttributeValueByKey('price_afterpay')): ?>
-                        <div class="col-xs-6">
-                            <div class="catalog-item__price">
-                                <span class="price-label">Цена при получении:</span>
-                                <span class="price-value"><?= $price_afterpay ?></span>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                        <?php if ($price_of_1 = $model->present()->getAttributeValueByKey('price_of_1')): ?>
-                        <div class="col-xs-6">
-                            <div class="catalog-item__price">
-                                <span class="price-label">Цена 1 банки:</span>
-                                <span class="price-value"><?= $price_of_1 ?></span>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                        <?php if ($price_of_12 = $model->present()->getAttributeValueByKey('price_of_12')): ?>
-                        <div class="col-xs-6">
-                            <div class="catalog-item__price">
-                                <span class="price-label">Цена 12 банок:</span>
-                                <span class="price-value"><?= $price_of_12 ?></span>
-                            </div>
-                        </div>
-                        <?php endif; ?>
-                    </div>
-                </div>
                 <div class="catalog-item__button">
                     <?= LeadForm::widget([
                         'key' => 'order',
@@ -125,7 +89,7 @@ $this->params['breadcrumbs'][] = $model->name;
             
             <?php if ($relatedProducts = $model->parent->getChildrenActive()->andWhere(['!=', 'id', $model->id])->all()): ?>
             <div class="product-related-products">
-                <div class="h3">Похожие препараты</div>
+                <div class="h3">Похожие</div>
                 <div class="list-group">
                 <?php foreach ($relatedProducts as $relatedProduct): ?>
                     <a class="list-group-item" href="<?= $relatedProduct->present()->getUrl() ?>"><?= Html::encode($relatedProduct->name) ?></a>
@@ -161,5 +125,3 @@ $this->params['breadcrumbs'][] = $model->name;
     ]) ?>
 </div>
 <?php endif; ?>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

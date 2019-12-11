@@ -15,7 +15,7 @@ $body = trim(html_entity_decode($model->body));
 $body = trim(strip_tags($model->body));
 $body = trim(str_replace('&nbsp;', '', $body));
 
-$title = "{$model->title} - ИНДИАВИР";
+$title = $model->title;
 $description = mb_substr($body, 0, 300, 'utf-8') . (mb_strlen($body, 'utf-8') > 300 ? '...' : '');
 
 Yii::$app->opengraph->set([
@@ -27,8 +27,7 @@ Yii::$app->opengraph->set([
 Yii::$app->seo->setTitle($title);
 Yii::$app->seo->setDescription($description);
 
-$this->params['breadcrumbs'][] = ['label'=>'Новости о лечении гепатита и ВИЧ', 'url'=>Url::to(['/news'])];
-$this->params['breadcrumbs'][] = ['label'=>$model->type->name, 'url'=>Url::to(['/news/' . str_replace('news-', '', $model->type->key)])];
+$this->params['breadcrumbs'][] = ['label'=>'Новости', 'url'=>Url::to(['/news'])];
 $this->params['breadcrumbs'][] = $model->title;
 
 /* @var $this View */
@@ -60,5 +59,3 @@ $this->params['breadcrumbs'][] = $model->title;
 	    </div>
 	<?php endif; ?>
 </div>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

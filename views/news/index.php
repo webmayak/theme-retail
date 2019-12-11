@@ -6,10 +6,10 @@ use yii\helpers\Url;
 use yii\widgets\ListView;
 
 if (!empty($category)) {
-    $this->params['breadcrumbs'][] = ['label'=>'Новости о лечении гепатита и ВИЧ', 'url'=>Url::to(['/news'])];
+    $this->params['breadcrumbs'][] = ['label'=>'Новости', 'url'=>Url::to(['/news'])];
     $this->title = $category->name;
 } else {
-    $this->title = 'Новости о лечении гепатита и ВИЧ';
+    $this->title = 'Новости';
 }
 $this->params['breadcrumbs'][] = $this->title;
 
@@ -29,5 +29,3 @@ $this->params['breadcrumbs'][] = $this->title;
         ],
     ]) ?>
 </div>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

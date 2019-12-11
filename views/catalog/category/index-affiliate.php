@@ -47,5 +47,3 @@ $tseny = $model->present()->getRelationCategoryByTypeKey('tseny');
     </div>
     <?php endif; ?>
 </div>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

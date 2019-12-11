@@ -32,5 +32,3 @@ $topLevelCategories = CatalogCategory::findOne(54)->children;
         ]) ?>
     </div>
 <?php endforeach; ?>
-
-<?= $this->render('@theme/views/_fast-consult') ?>

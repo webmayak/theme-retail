@@ -6,7 +6,6 @@
  * Time: 11:34 AM
  */
 
-use pantera\leads\widgets\form\LeadForm;
 use pantera\content\widgets\block\Block;
 use yii\web\View;
 
@@ -152,13 +151,7 @@ use yii\web\View;
                 </div>
                 <div class="col-lg-3 col-md-4 col-sm-6">
                     <div class="footer__contacts">
-                        <?= LeadForm::widget([
-                            'key' => 'callMe',
-                            'text' => 'Заказать звонок',
-                            'options' => [
-                                'class' => 'btn btn-primary footer__contacts-btn btn--call',
-                            ],
-                        ]) ?>
+                        <div class="footer__menu-title">Контакты</div>
                         <ul class="footer__contact-list ul-reset">
                             <li class="footer__contact-item">
                                 <div class="footer__contact-item-icon">
