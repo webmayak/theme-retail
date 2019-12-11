@@ -3,7 +3,7 @@
 use pantera\content\widgets\block\Block;
 use common\widgets\Alert;
 use yii\web\View;
-use yii\widgets\Breadcrumbs;
+use yii\bootstrap4\Breadcrumbs;
 
 /* @var $this View */
 /* @var $content string */
@@ -17,12 +17,6 @@ use yii\widgets\Breadcrumbs;
 	<?php endif; ?>
 	<?= Alert::widget() ?>
 	<?= $content ?>
-</div>
-
-<div class="content-block">
-	<div class="container">
-		<?= $this->render('@theme/views/_fast-consult') ?>
-	</div>
 </div>
 
 <div class="content-block content-block__contacts-map">

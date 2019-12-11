@@ -8,13 +8,12 @@
 use yii\helpers\Html;
 
 $this->title = $name;
-?>
 
-<h1>Упс! <?= $exception->statusCode . ' ' . Html::encode($message) ?>..</h1>
+?><div class="error-page text-center">
 
-<div class="error">
-
-    <div class="h3">Без паники!</div>
+	<h1>Упс! <?= $exception->statusCode . ' ' . Html::encode($message) ?>..</h1>
+	
+	<br/><br/>
     
     <p>Возможно запрашиваемая страница была перемещена по новому адресу в связи с обновлением сайта.</p>
 
@@ -22,11 +21,8 @@ $this->title = $name;
 
     <br/>
 
-    <a class="btn btn-lg btn-default" href="/catalog">Перейти в каталог</a>
-
+    <a class="btn btn-lg btn-outline-primary" href="/">На главную страницу</a>
     &nbsp;
+    <a class="btn btn-lg btn-success" href="/shop">Перейти в каталог</a>
 
-    <a class="btn btn-lg btn-primary" href="/">На главную страницу »</a>
 </div>
-
-<br/><br/>

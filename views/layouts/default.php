@@ -52,11 +52,13 @@ $this->beginPage();
             padding-left: 20px;
             margin: 6px 0;
         }
-        .row > .empty {
-            padding: 0 15px;
+        .products-list > .empty {
+            margin-top: 20px;
         }
         .breadcrumb {
             margin-top: 20px;
+            padding: 0;
+            background: transparent;
         }
         footer {
             margin-top: 30px;
@@ -72,6 +74,58 @@ $this->beginPage();
         }
         .footer__contact-item {
             margin-bottom: 12px;
+        }
+        ul.pagination {
+            align-items: center;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        .product-card {
+            margin-top: 30px;
+        }
+        .product-card__title-link {
+            min-height: 100px;
+            margin-top: 10px;
+        }
+        .add-to-cart-form {
+            margin-right: 8px;
+        }
+        ul.all-categories {
+            margin-top: 20px;
+            columns: 3;
+            -webkit-columns: 3;
+            -moz-columns: 3;
+        }
+        h1, h2 {
+            font-size: 32px;
+            text-align: left;
+            font-weight: 400;
+            margin: 0;
+        }
+        h1:after, h2:after {
+            display: none;
+        }
+        .content-slider__item-content .product-card__actions a, .product-card__actions .btn, .product-card__actions .content-slider__item-content a {
+            padding: 8px;
+        }
+        .btn.product-card__to-cart {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+        .products-list .summary {
+            margin-top: 20px;
+        }
+        .wsmenu>.wsmenu-list>li>.navtext {
+            justify-content: center;
+        }
+        .error-page {
+            margin: 60px 0;
+        }
+        .error-page h1 {
+            text-align: center;
+        }
+        .editor-content__page {
+            margin-top: 20px;
         }
     </style>
 </head>

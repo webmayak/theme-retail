@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 ?><div class="mainpage-category-holder">
     <h1><?=$this->title?></h1>
     <?php if ($categories): ?>
-    <ul style="columns: 3; -webkit-columns: 3; -moz-columns: 3;">
+    <ul class="all-categories">
     <?php foreach ($categories as $category): ?>
         <li>
             <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>

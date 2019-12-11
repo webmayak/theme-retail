@@ -10,31 +10,27 @@ $this->title = $model->name;
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
 $this->params['breadcrumbs'][] = $this->title;
 
+$dataProvider->pagination = ['defaultPageSize' => 12];
+
 /**
  * @var $dataProvider \yii\data\ActiveDataProvider
  */
 ?><h1><?=$this->title?></h1>
 
-<?= ProductFilter::widget([
-    'configuration' => new ProductFilterWidgetConfiguration([
-        'searchModel' => $searchModel,
-        'contextQuery' => $dataProvider->query,
-        'currentBrand' => null,
-    ])
-])?>
-
-<?= ProductsListWidget::widget([
-    'configuration' => new ProductsListWidgetConfiguration([
-        'listViewConfiguration' => [
-            'summary' => false,
-            'options' => [
-                'class' => 'projects row',
-            ],
-            'itemOptions' => [
-                'class' => 'col-md-3',
-                'style' => 'margin-bottom: 10px;'
-            ],
+<?= \yii\widgets\ListView::widget([
+    'dataProvider' => $dataProvider,
+    'options' => [
+        'class' => 'products-list',
+    ],
+    'itemView' => '_view',
+    'itemOptions' => [
+        'class' => 'col-md-3',
+    ],
+    'layout' => '{summary}<div class="row">{items}</div>{pager}',
+    'pager' => [
+        'class' => 'yii\bootstrap4\LinkPager',
+        'options' => [
+            'class' => 'text-center',
         ],
-        'dataProvider' => $dataProvider
-    ])
+    ],
 ]) ?>

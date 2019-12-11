@@ -22,59 +22,50 @@ use yii\web\View;
         <nav class="wsmenu">
             <ul class="wsmenu-list">
                 <?php
-                $catalogIsActive = preg_match('/^(catalog|brands|documenty-certificaty-rezultaty-himicheskih-issledovanii)/', Yii::$app->request->pathInfo);
-                $brandsIsActive = preg_match('/^brands/', Yii::$app->request->pathInfo);
+                $catalogIsActive = preg_match('/^shop/', Yii::$app->request->pathInfo);
                 ?>
-                <li class="<?= $catalogIsActive ? 'active' : '' ?>active" id="main-menu-catalog">
-                    <a href="<?= Url::to(['#']) ?>" class="navtext vsmenu-cat-toggle">
-                        Каталог
+                <li class="<?= $catalogIsActive ? 'active' : '' ?>" id="main-menu-catalog">
+                    <a href="<?= Url::to(['/shop/catalog']) ?>" class="navtext vsmenu-cat-toggle">
+                        Каталог товаров
                         <i class="fa fa-chevron-down"></i>
                     </a>
+                    <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
                     <ul class="sub-menu">
+                        <?php foreach ($categories as $category): ?>
                         <li>
-                            <a href="<?= Url::to(['#']) ?>">Автомобильные товары</a>
+                            <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
                         </li>
-                        <li>
-                            <a href="<?= Url::to(['#']) ?>">Батарейки, Аккумуляторы</a>
-                        </li>
-                        <li>
-                            <a href="<?= Url::to(['#']) ?>">Зарядные устройства и блоки питания</a>
-                        </li>
-                        <li>
-                            <a href="<?= Url::to(['#']) ?>">Инструменты и оборудование</a>
-                        </li>
-                        <li>
-                            <a href="<?= Url::to(['#']) ?>">Кабельная продукция</a>
-                        </li>
+                        <?php endforeach;?>
                     </ul>
-                    <?php if (0 && $this->beginCache('megamenu-dropdown', ['duration' => 86400])): ?>
+                    <?php if ($this->beginCache('megamenu-dropdown', ['duration' => 86400])): ?>
                     <?= $this->render('_dropdown', [
                         'categories' => $catalogRoot->getChildren()->isInMenu()->all(),
                     ]) ?>
                     <?php $this->endCache(); endif; ?>
+                    <?php endif; ?>
                 </li>
-                <li class="<?= preg_match('/^article$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
-                    <a class="navtext" href="<?= Url::to(['#']) ?>">
-                        О компании
+                <li class="<?= preg_match('/^payment-delivery$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+                    <a class="navtext" href="<?= Url::to(['/payment-delivery']) ?>">
+                        Оплата и доставка
                     </a>
                 </li>
-                <li class="<?= preg_match('/^news$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
-                    <a class="navtext" href="<?= Url::to(['#']) ?>">
-                        Техническая информация
-                    </a>
-                </li>
-                <li class="<?= preg_match('/^reviews/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
-                    <a class="navtext" href="<?= Url::to(['#']) ?>">
+                <li class="<?= preg_match('/^partnership/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+                    <a class="navtext" href="<?= Url::to(['/partnership']) ?>">
                         Партнерам
                     </a>
                 </li>
-                <li class="<?= preg_match('/^reviews/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
-                    <a class="navtext" href="<?= Url::to(['#']) ?>">
+                <li class="<?= preg_match('/^for-customers/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+                    <a class="navtext" href="<?= Url::to(['/for-customers']) ?>">
                         Покупателям
                     </a>
                 </li>
-                <li class="<?= preg_match('/^lechenie/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
-                    <a class="navtext" href="<?= Url::to(['#']) ?>">
+                <li class="<?= preg_match('/^about$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+                    <a class="navtext" href="<?= Url::to(['/about']) ?>">
+                        О магазине
+                    </a>
+                </li>
+                <li class="<?= preg_match('/^contacts/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+                    <a class="navtext" href="<?= Url::to(['/contacts']) ?>">
                         Контакты
                     </a>
                 </li>
@@ -103,7 +94,7 @@ use yii\web\View;
                     </a>
                 </li>
                 <li class="active">
-                    <a class="navicon" href="<?= Url::to(['#']) ?>">
+                    <a class="navicon" href="<?= Url::to(['/shop/order/cart']) ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                             <use xlink:href="/images/sprite.svg#icon-cart"/>
                         </svg>

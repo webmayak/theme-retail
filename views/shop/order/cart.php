@@ -19,8 +19,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <table class="table">
     <theader>
         <tr>
-            <td></td>
-            <td>Товар</td>
+            <td colspan="2">Товар</td>
             <td>Кол-во</td>
             <td>Цена</td>
             <td>Сумма</td>
@@ -31,7 +30,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php foreach ($items as $item): ?>
         <tr data-id="<?= $item->product_id ?>">
             <td>
-                <img src="<?= $item->mainImage ?>">
+                <img src="https://via.placeholder.com/48">
             </td>
             <td>
                 <?= $item->title ?>
