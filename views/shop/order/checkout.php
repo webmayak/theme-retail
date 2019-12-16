@@ -23,8 +23,18 @@ $this->params['breadcrumbs'][] = $this->title;
 
 <h1><?= Html::encode($this->title) ?></h1>
 
+<?php $this->registerJs('
+$(document).on("change", ".delivery-mode-selector", function() {
+$(\'#rebuild-form-button\').click()
+});
+', \yii\web\View::POS_END,'rebuildFormDelivery');?>
+
 <?php Pjax::begin() ?>
     <?php $form = ActiveForm::begin([
+        'method' => 'POST',
+        'enableClientValidation' => false,
+        'enableAjaxValidation' => true,
+        'validationUrl' => ['validate-order-form'],
         'options' => [
             'data' => [
                 'pjax' => 1
@@ -51,12 +61,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php endforeach;?>
 
     <hr/>
-    <h2>Информация о покупателе</h2>
-    <div>
-        <?php foreach ($constructor->getTextFields() as $textField):?>
-            <?= $form->field($model, $textField->name) ?>
+    <?php foreach ($constructor->getTextFields() as $groupName => $fields):?>
+        <h4><?=$groupName?></h4>
+        <?php foreach ($fields as $field):?>
+            <?= $form->field($model, $field->name) ?>
         <?php endforeach;?>
-    </div>
+    <?php endforeach;?>
     <?= Html::submitButton('Собрать', [
         'name' => 'action',
         'value' => 'change',
