@@ -15,7 +15,6 @@ class AppAsset extends AssetBundle
     public $sourcePath = __DIR__.'/assets';
     public $baseUrl = '@web';
     public $css = [
-        '//fonts.googleapis.com/css?family=Open+Sans:300,400,500,600,700&amp;subset=cyrillic',
         '//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
         'js/webslidemenu/webslidemenu.css',
         'js/webslidemenu/dropdown-effects/fade-up.css',
@@ -29,6 +28,7 @@ class AppAsset extends AssetBundle
     public $js = [
         'js/bootstrap.bundle.min.js',
         'js/svg4everybody.min.js',
+        'js/typeahead.jquery.min.js',
         'js/webslidemenu/webslidemenu.js',
         'js/jquery.goup.min.js',
         'js/js.cookie.js',

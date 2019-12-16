@@ -1,19 +1,35 @@
-$font-family-base: "SegoeUI", Arial, sans-serif;
-$text: #000e39;
-$body-color: $text;
-$primary: #00bbdf;
-$success: #49d074;
+$font-family-base: "PT Root UI", Arial, sans-serif;
+$body-color: #000000;
+$link-color: #535353;
+$primary: #0080d6;
+$secondary: #ef9c00;
+$yiq-contrasted-threshold: 200;
 $font-size-base: 0.875rem;
 $line-height-base: 1.4;
 $btn-line-height-lg: inherit;
 $btn-font-size: inherit;
-$btn-padding-y-lg: 14px;
-$btn-font-size-lg: inherit;
-$btn-border-radius: 5px;
+$btn-font-size-lg: 18px;
+$btn-padding-y-lg: 16px;
+$btn-font-weight: 500;
+$border-radius: 0;
+$border-radius-lg: 0;
 $pagination-padding-y: 8px;
 $pagination-padding-x: 0;
 $pagination-color: inherit;
-$pagination-hover-color: $success;
+$pagination-hover-color: $primary;
 $pagination-hover-bg: transparent;
-$pagination-active-bg: $success;
+$pagination-active-bg: $primary;
 $pagination-border-width: 0;
+$grid-breakpoints: (
+        xs: 0,
+        sm: 576px,
+        md: 768px,
+        lg: 992px,
+        xl: 1500px
+);
+$container-max-widths: (
+        sm: 540px,
+        md: 720px,
+        lg: 960px,
+        xl: 1470px
+);

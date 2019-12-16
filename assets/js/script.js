@@ -109,3 +109,68 @@ $.goup({
 });
 
 svg4everybody();
+
+$(document).on('click', '.open-lead-modal', function () {
+    const self = $(this);
+    const modal = $(self.data('target'));
+    const url  = self.attr('href') || self.data('url');
+    $.get(url, function (result) {
+        modal.find('.modal-content').html(result);
+        modal.modal('show');
+    });
+    return false;
+});
+
+var substringMatcher = function(strs) {
+    return function findMatches(q, cb) {
+        var matches, substringRegex;
+
+        matches = [];
+
+        substrRegex = new RegExp(q, 'i');
+
+        $.each(strs, function(i, str) {
+            if (substrRegex.test(str.value)) {
+                matches.push(str);
+            }
+        });
+
+        cb(matches);
+    };
+};
+
+var searchArr = [
+    {
+        value: 'Компьютер',
+        image: '/images/category-1.jpg'
+    },
+    {
+        value: 'Транзистор',
+        image: '/images/category-2.jpg'
+    },
+    {
+        value: 'Компьютер',
+        category: 'Компьютеры',
+        image: '/images/category-3.jpg'
+    },
+    {
+        value: 'Транзистор',
+        category: 'Транзисторы',
+        image: '/images/category-4.jpg'
+    }
+];
+
+$('.search-field').typeahead({
+    hint: false,
+    highlight: true
+},
+{
+    source: substringMatcher(searchArr),
+    display: 'value',
+    templates: {
+        empty: '<div class="tt-empty">По вашему запросу ничего не найдено</div>',
+        suggestion: function(data) {
+            return '<div><img class="tt-img" src="' + data.image + '" width="30">' + data.value + (data.category ? ' <span class="tt-category">в категории</span> <span class="tt-category-name">' + data.category + '</span>' : '') + '</div>';
+        }
+    }
+});

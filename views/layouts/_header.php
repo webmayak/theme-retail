@@ -127,14 +127,14 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
                     'key' => 'callMe',
                     'text' => 'Заказать звонок',
                     'options' => [
-                        'class' => 'btn btn-primary header__btn btn--call',
+                        'class' => 'btn btn-lg d-block btn-primary header__btn',
                     ],
                 ]) ?>
                 <?= LeadForm::widget([
                     'key' => 'question',
                     'text' => 'Задать вопрос',
                     'options' => [
-                        'class' => 'btn btn-success header__btn btn--question',
+                        'class' => 'btn btn-lg d-block btn-secondary header__btn',
                     ],
                 ]) ?>
             </div>
