@@ -100,15 +100,15 @@
 
 @media (min-width: 992px) {
   .megamenu {
-    background-color: #efefef;
-    border-top: 1px solid rgba(149, 149, 149, 0.1);
-    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.1);
+    border-top: 1px solid #e8edf2;
+    border-bottom: 1px solid #e8edf2;
   }
 
   .wsmenu {
     border-left: none;
     width: 100%;
     height: auto!important;
+    font-size: 18px;
 
     > .wsmenu-list {
       display: flex;
@@ -131,19 +131,7 @@
 
         &.active {
           > a {
-            color: $success;
-          }
-
-          > .navtext {
-            &::after {
-              content: '';
-              position: absolute;
-              left: 0;
-              right: 0;
-              bottom: 0;
-              height: 4px;
-              background-color: $success;
-            }
+            color: $primary;
           }
         }
 
@@ -154,20 +142,19 @@
         }
 
         > a {
-          color: #323b49;
-          font-size: 16px;
-          font-weight: 600;
+          color: #535353;
           transition: 0.25s;
 
           &:hover {
-            color: $success;
+            color: $primary;
           }
         }
 
         > .navtext {
           display: flex;
           align-items: center;
-          padding: 24px 12px;
+          padding: 22px 12px;
+          justify-content: center;
 
           .fa {
             font-size: 8px;
@@ -192,14 +179,12 @@
 
           > li {
             > a {
-              font-size: 14px;
-              font-weight: 600;
-              color: #323b49;
+              color: #535353;
               padding: 13px 20px;
               transition: background-color 0.25s;
 
               &:hover {
-                background-color: $success;
+                background-color: $primary;
                 color: #ffffff;
               }
             }
@@ -213,7 +198,7 @@
 @media (max-width: 991px) {
   .wsmenu {
     >.wsmenu-list {
-      background-color: $success;
+      background-color: $primary;
 
       > li {
         .wsmenu-click {
@@ -285,6 +270,6 @@
   }
 
   .menu-cart-count {
-    color: $success;
+    color: $primary;
   }
 }

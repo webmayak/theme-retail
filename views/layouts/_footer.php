@@ -16,13 +16,18 @@ use yii\web\View;
     <div class="footer__middle">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3 col-md-8 col-sm-6">
-                    <a href="/" class="site-logo footer__logo">
-                        <img class="site-logo__img" src="/images/logo.png" alt="" style="max-width: 80%">
-                    </a>
+                <div class="col-lg-3">
                     <div class="footer__social">
-                        <div class="footer__social-title">Социальные сети</div>
+                        <div class="footer__title">Социальные сети</div>
                         <ul>
+                            <li>
+                                <a class="social-link social-link--instargam" href="<?= Yii::$app->contactsManager->get('social_instagram') ?>" target="_blank">
+                                    <span class="sr-only">Instargam</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                                        <use xlink:href="/images/sprite.svg#icon-instargam">
+                                    </svg>
+                                </a>
+                            </li>
                             <li>
                                 <a class="social-link social-link--vk" href="<?= Yii::$app->contactsManager->get('social_vkontakte') ?>" target="_blank">
                                     <span class="sr-only">ВКонтакте</span>
@@ -39,44 +44,12 @@ use yii\web\View;
                                     </svg>
                                 </a>
                             </li>
-                            <li>
-                                <a class="social-link social-link--youtube" href="<?= Yii::$app->contactsManager->get('social_youtube') ?>" target="_blank">
-                                    <span class="sr-only">YouTube</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                                        <use xlink:href="/images/sprite.svg#icon-youtube">
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="social-link social-link--instargam" href="<?= Yii::$app->contactsManager->get('social_instagram') ?>" target="_blank">
-                                    <span class="sr-only">Instargam</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                                        <use xlink:href="/images/sprite.svg#icon-instargam">
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="social-link social-link--ok" href="#" target="_blank">
-                                    <span class="sr-only">OK</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                                        <use xlink:href="/images/sprite.svg#icon-ok">
-                                    </svg>
-                                </a>
-                            </li>
-                            <li>
-                                <a class="social-link social-link--tw" href="#" target="_blank">
-                                    <span class="sr-only">Twitter</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                                        <use xlink:href="/images/sprite.svg#icon-tw">
-                                    </svg>
-                                </a>
-                            </li>
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 order-lg-0 col-md-4 order-sm-3 col-sm-4">
+                <div class="col-lg-3">
                     <div class="footer__menu">
-                        <div class="footer__menu-title">Информация</div>
+                        <div class="footer__title">Информация</div>
                         <ul>
                             <li>
                                 <a href="">Способы оплаты</a>
@@ -99,9 +72,9 @@ use yii\web\View;
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 order-lg-0 col-md-4 order-sm-3 col-sm-4">
+                <div class="col-lg-3">
                     <div class="footer__menu">
-                        <div class="footer__menu-title">Информация</div>
+                        <div class="footer__title">Навигация</div>
                         <ul>
                             <li>
                                 <a href="">Способы оплаты</a>
@@ -124,9 +97,9 @@ use yii\web\View;
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-2 order-lg-0 col-md-4 order-sm-3 col-sm-4">
+                <div class="col-lg-3">
                     <div class="footer__menu">
-                        <div class="footer__menu-title">Информация</div>
+                        <div class="footer__title">Личный кабинет</div>
                         <ul>
                             <li>
                                 <a href="">Способы оплаты</a>
@@ -147,65 +120,6 @@ use yii\web\View;
                                 <a href="">Реквизиты</a>
                             </li>
                         </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-4 col-sm-6">
-                    <div class="footer__contacts">
-                        <div class="footer__menu-title">Контакты</div>
-                        <ul class="footer__contact-list ul-reset">
-                            <li class="footer__contact-item">
-                                <div class="footer__contact-item-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor">
-                                        <use xlink:href="/images/sprite.svg#icon-tel">
-                                    </svg>
-                                </div>
-                                <div class="footer__contact-item-text">+7-495-444-77-66</div>
-                            </li>
-                            <li class="footer__contact-item">
-                                <div class="footer__contact-item-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="currentColor">
-                                        <use xlink:href="/images/sprite.svg#icon-email">
-                                    </svg>
-                                </div>
-                                <div class="footer__contact-item-text">energon@gmail.com</div>
-                            </li>
-                            <li class="footer__contact-item">
-                                <div class="footer__contact-item-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" fill="currentColor">
-                                        <use xlink:href="/images/sprite.svg#icon-mode">
-                                    </svg>
-                                </div>
-                                <div class="footer__contact-item-text">Пн-Пт: 09:00-19:00</div>
-                            </li>
-                            <li class="footer__contact-item">
-                                <div class="footer__contact-item-icon">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="12" fill="currentColor">
-                                        <use xlink:href="/images/sprite.svg#icon-address">
-                                    </svg>
-                                </div>
-                                <div class="footer__contact-item-text">ул. Советская, д. 28</div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="footer__bottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="footer__bottom-copyright">
-                        <?= Block::widget([
-                            'position' => 'copyrightLeft',
-                        ]) ?>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="footer__bottom-development">
-                        <?= Block::widget([
-                            'position' => 'copyrightRight',
-                        ]) ?>
                     </div>
                 </div>
             </div>

@@ -36,22 +36,6 @@ $this->beginPage();
     <?php $this->head() ?>
     <style>
         <?= Yii::$app->settings->get('css', 'default') ?>
-        .megamenu {
-            -webkit-box-shadow: none;
-            box-shadow: none;
-        }
-        ul {
-            list-style-position: inside;
-            list-style-type: disc;
-            padding-left: 0;
-        }
-        ul li {
-            margin-top: 3px;
-        }
-        ul ul {
-            padding-left: 20px;
-            margin: 6px 0;
-        }
         .products-list > .empty {
             margin-top: 20px;
         }
@@ -62,18 +46,6 @@ $this->beginPage();
         }
         footer {
             margin-top: 30px;
-        }
-        .footer__middle {
-            padding: 40px 0;
-        }
-        .footer__bottom {
-            padding: 20px 0 5px 0;
-        }
-        .footer__menu li:not(:last-child) {
-            margin-bottom: 8px;
-        }
-        .footer__contact-item {
-            margin-bottom: 12px;
         }
         ul.pagination {
             align-items: center;
@@ -95,15 +67,15 @@ $this->beginPage();
             columns: 3;
             -webkit-columns: 3;
             -moz-columns: 3;
+            list-style-position: inside;
+            padding-left: 0;
         }
-        h1, h2 {
-            font-size: 32px;
-            text-align: left;
-            font-weight: 400;
-            margin: 0;
+        ul.all-categories li {
+            margin-top: 3px;
         }
-        h1:after, h2:after {
-            display: none;
+        ul.all-categories ul {
+            padding-left: 20px;
+            margin: 6px 0;
         }
         .content-slider__item-content .product-card__actions a, .product-card__actions .btn, .product-card__actions .content-slider__item-content a {
             padding: 8px;
@@ -114,9 +86,6 @@ $this->beginPage();
         }
         .products-list .summary {
             margin-top: 20px;
-        }
-        .wsmenu>.wsmenu-list>li>.navtext {
-            justify-content: center;
         }
         .error-page {
             margin: 60px 0;

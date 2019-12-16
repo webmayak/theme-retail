@@ -24,7 +24,7 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
                     </div>
                 </button>
                 <a href="/" class="header__site-logo site-logo">
-                    <img class="site-logo__img" src="/images/logo.png" alt="" style="max-width: 200px">
+                    <img class="site-logo__img" src="/images/logo.png" alt="ENERGON">
                 </a>
             </div>
             <div class="col-xl-6 col-lg-7 order-lg-0 order-3 d-none d-lg-block">

@@ -24,12 +24,11 @@ use yii\web\View;
                 <?php
                 $catalogIsActive = preg_match('/^shop/', Yii::$app->request->pathInfo);
                 ?>
-                <li class="<?= $catalogIsActive ? 'active' : '' ?>" id="main-menu-catalog">
+                <li class="all-categories-btn <?= $catalogIsActive ? 'active' : '' ?>" id="main-menu-catalog">
                     <a href="<?= Url::to(['/shop/catalog']) ?>" class="navtext vsmenu-cat-toggle">
-                        Каталог товаров
-                        <i class="fa fa-chevron-down"></i>
+                        Все категории
                     </a>
-                    <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
+                    <?php if (0 && $categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
                     <ul class="sub-menu">
                         <?php foreach ($categories as $category): ?>
                         <li>

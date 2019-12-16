@@ -1,9 +1,9 @@
 $font-family-base: "PT Root UI", Arial, sans-serif;
 $body-color: #000000;
-$link-color: #535353;
 $primary: #0080d6;
 $secondary: #ef9c00;
 $yiq-contrasted-threshold: 200;
+$link-color: $primary;
 $font-size-base: 0.875rem;
 $line-height-base: 1.4;
 $btn-line-height-lg: inherit;
@@ -25,11 +25,13 @@ $grid-breakpoints: (
         sm: 576px,
         md: 768px,
         lg: 992px,
-        xl: 1500px
+        xl: 1200px,
+        xxl: 1500px
 );
 $container-max-widths: (
         sm: 540px,
         md: 720px,
         lg: 960px,
-        xl: 1470px
+        xl: 1140px,
+        xxl: 1470px
 );

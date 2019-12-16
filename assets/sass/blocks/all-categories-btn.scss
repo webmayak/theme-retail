@@ -1,0 +1,21 @@
+.all-categories-btn {
+  width: 300px;
+  flex-grow: 0 !important;
+
+  a {
+    font-size: 18px !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    background-color: $secondary;
+    background-repeat: no-repeat;
+    background-position: 16px 50%;
+    background-image: url("../images/all-categories.png");
+    padding: 22px 16px !important;
+  }
+}
+
+@media (max-width: 1499px) {
+  .all-categories-btn {
+    width: 250px;
+  }
+}
