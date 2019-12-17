@@ -41,11 +41,14 @@ h1 {
 }
 
 .owl-dots {
-  margin-top: 30px;
+  margin-top: 20px;
   text-align: center;
 }
 
 .owl-dot {
+  border: none;
+  background-color: transparent;
+  padding: 0;
   margin: 0 5px;
   transition: 0.25s;
 
@@ -60,15 +63,15 @@ h1 {
 
   span {
     display: block;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
-    background-color: #d9d9d9;
+    background-color: #e7e7e7;
   }
 
   &.active {
     span {
-      background-color: $success;
+      background-color: $primary;
     }
   }
 }

@@ -59,11 +59,7 @@ $this->beginPage();
             min-height: 100px;
             margin-top: 10px;
         }
-        .add-to-cart-form {
-            margin-right: 8px;
-        }
         ul.all-categories {
-            margin-top: 20px;
             columns: 3;
             -webkit-columns: 3;
             -moz-columns: 3;
@@ -76,13 +72,6 @@ $this->beginPage();
         ul.all-categories ul {
             padding-left: 20px;
             margin: 6px 0;
-        }
-        .content-slider__item-content .product-card__actions a, .product-card__actions .btn, .product-card__actions .content-slider__item-content a {
-            padding: 8px;
-        }
-        .btn.product-card__to-cart {
-            padding-left: 12px;
-            padding-right: 12px;
         }
         .products-list .summary {
             margin-top: 20px;

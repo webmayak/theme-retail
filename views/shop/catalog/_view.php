@@ -1,7 +1,6 @@
 <?php
 
 use yii\helpers\Html;
-use yii\helpers\Url;
 
 /**
  * @var \common\modules\shop\models\ShopProduct $model
@@ -48,7 +47,7 @@ use yii\helpers\Url;
 
     <div class="product-card__actions">
         <?=\common\modules\shop\widgets\cart\addToCart\AddToCartWidget::widget([
-                'htmlOptions' => ['class' => 'product-card__to-cart btn btn-lg btn-primary'],
+                'htmlOptions' => ['class' => 'product-card__to-cart btn btn-lg btn-block btn-primary'],
                 'content' => 'В корзину
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
                         <use xlink:href="/images/sprite.svg#icon-cart"></use>

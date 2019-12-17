@@ -1,0 +1,25 @@
+.product-price__actual {
+  font-size: 24px;
+  font-weight: 500;
+  color: $primary;
+}
+
+.product-status {
+  .status {
+    font-size: 18px;
+    color: $success;
+  }
+}
+
+.product-actions {
+  display: flex;
+  flex-wrap: wrap;
+
+  > *:not(:last-child) {
+    margin-right: 8px;
+  }
+}
+
+.product__info {
+  margin-top: 30px;
+}

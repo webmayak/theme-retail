@@ -185,23 +185,20 @@
   margin-top: 10px;
   display: flex;
   flex-wrap: wrap;
-}
 
-.product-card__actions .btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 13px;
-  margin-right: 8px;
-}
+  > *:not(:last-child) {
+    margin-right: 8px;
+  }
 
-.product-card__actions .btn:last-child {
-  margin-right: 0;
-}
+  .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.product-card__actions .product-card__to-cart {
-  flex-grow: 1;
-  padding: 13px 2px;
+  .add-to-cart-form {
+    flex-grow: 1;
+  }
 }
 
 .product-card__to-cart svg {
