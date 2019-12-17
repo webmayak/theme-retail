@@ -48,7 +48,7 @@ use yii\helpers\Url;
 
     <div class="product-card__actions">
         <?=\common\modules\shop\widgets\cart\addToCart\AddToCartWidget::widget([
-                'htmlOptions' => ['class' => 'product-card__to-cart btn btn-primary'],
+                'htmlOptions' => ['class' => 'product-card__to-cart btn btn-lg btn-primary'],
                 'content' => 'В корзину
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
                         <use xlink:href="/images/sprite.svg#icon-cart"></use>
@@ -56,13 +56,13 @@ use yii\helpers\Url;
                 'model' => $model
         ]) ?>
 
-        <button class="product-card__to-favorites btn btn-outline-success">
+        <button class="product-card__to-favorites btn btn-lg btn-outline-secondary">
             <span class="sr-only">В избранное</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
                 <use xlink:href="/images/sprite.svg#icon-heart"></use>
             </svg>
         </button>
-        <button class="product-card__to-compare btn btn-outline-success">
+        <button class="product-card__to-compare btn btn-lg btn-outline-secondary">
             <span class="sr-only">Сравнить</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
                 <use xlink:href="/images/sprite.svg#icon-graph"></use>

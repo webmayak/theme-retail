@@ -108,7 +108,15 @@ $.goup({
     bottomOffset: 50
 });
 
-svg4everybody();
+$(document).ready(function () {
+
+    svg4everybody();
+
+    setTimeout(function () {
+        $('.quantity-field').styler();
+    }, 100);
+
+});
 
 $(document).on('click', '.open-lead-modal', function () {
     const self = $(this);

@@ -24,38 +24,42 @@ $this->context->layout = '//front';
 <div class="container">
     <div class="row">
         <div class="col-auto">
-            <div class="catalog-menu">
-                <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
-                    <ul>
-                        <?php foreach ($categories as $category): ?>
-                            <li>
-                                <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
-                                <?php if ($lvl2cats = $category->getChildren()->andWhere(['status' => 1])->all()): ?>
-                                    <ul>
-                                        <?php foreach ($lvl2cats as $lvl2cat): ?>
-                                            <li>
-                                                <a href="<?= $lvl2cat->present()->getUrl() ?>"><?= $lvl2cat->name ?></a>
-                                            </li>
-                                        <?php endforeach; ?>
-                                    </ul>
-                                <?php endif; ?>
-                            </li>
-                        <?php endforeach;?>
-                    </ul>
-                <?php endif; ?>
+            <div class="sidebar">
+                <div class="catalog-menu">
+                    <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
+                        <ul>
+                            <?php foreach ($categories as $category): ?>
+                                <li>
+                                    <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
+                                    <?php if ($lvl2cats = $category->getChildren()->andWhere(['status' => 1])->all()): ?>
+                                        <ul>
+                                            <?php foreach ($lvl2cats as $lvl2cat): ?>
+                                                <li>
+                                                    <a href="<?= $lvl2cat->present()->getUrl() ?>"><?= $lvl2cat->name ?></a>
+                                                </li>
+                                            <?php endforeach; ?>
+                                        </ul>
+                                    <?php endif; ?>
+                                </li>
+                            <?php endforeach;?>
+                        </ul>
+                    <?php endif; ?>
+                </div>
             </div>
         </div>
         <div class="col-auto">
-            <div class="slider">
-                <?= Slider::widget([
-                    'pluginOptions' => [
-                        'dots' => false,
-                        'autoplay' => true,
-                        'animateIn' => false,
-                        'animateOut' => false,
-                        'autoplayHoverPause' => true,
-                    ],
-                ]) ?>
+            <div class="content">
+                <div class="slider">
+                    <?= Slider::widget([
+                        'pluginOptions' => [
+                            'dots' => false,
+                            'autoplay' => true,
+                            'animateIn' => false,
+                            'animateOut' => false,
+                            'autoplayHoverPause' => true,
+                        ],
+                    ]) ?>
+                </div>
             </div>
         </div>
     </div>

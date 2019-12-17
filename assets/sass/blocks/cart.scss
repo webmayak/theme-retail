@@ -1,0 +1,18 @@
+.cart__table {
+  margin-bottom: 0;
+}
+
+.cart__total {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.cart__total-sum {
+  font-size: 1.25em;
+}
+
+@media (max-width: 767px) {
+  .cart__total {
+    font-size: 18px;
+  }
+}

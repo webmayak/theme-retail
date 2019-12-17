@@ -1,0 +1,39 @@
+.cart-table {
+  font-size: 16px;
+
+  td {
+    vertical-align: middle;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  &__item-name {
+    display: block;
+    min-width: 200px;
+  }
+
+  &__item-price,
+  &__item-sum {
+    white-space: nowrap;
+  }
+
+  &__item-delete {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: 0;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    background-image: url("../images/delete.svg");
+
+    &:focus {
+      outline: 1px dotted $secondary;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .cart-table__item-img {
+    max-width: 70px;
+  }
+}

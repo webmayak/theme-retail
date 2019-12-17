@@ -1,9 +1,7 @@
-h1,
-h2 {
-  font-size: 32px;
+h1 {
   word-break: break-word;
   font-weight: normal;
-  margin: 0;
+  margin-bottom: 20px;
 }
 
 .ul-reset {
@@ -115,6 +113,30 @@ h2 {
     .fa {
       margin-left: 5px;
     }
+  }
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.content {
+  width: 1110px;
+}
+
+@media (max-width: 1499px) {
+  .sidebar {
+    width: 250px;
+  }
+
+  .content {
+    width: 830px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .content {
+    width: 650px;
   }
 }
 

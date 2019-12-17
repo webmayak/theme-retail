@@ -29,6 +29,7 @@ class AppAsset extends AssetBundle
         'js/bootstrap.bundle.min.js',
         'js/svg4everybody.min.js',
         'js/typeahead.jquery.min.js',
+        'js/jquery.formstyler.min.js',
         'js/webslidemenu/webslidemenu.js',
         'js/jquery.goup.min.js',
         'js/js.cookie.js',

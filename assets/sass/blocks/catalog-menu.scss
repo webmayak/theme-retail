@@ -1,6 +1,4 @@
 .catalog-menu {
-  width: 300px;
-
   ul {
     margin: 0;
     padding: 0;
@@ -76,8 +74,6 @@
 
 @media (max-width: 1499px) {
   .catalog-menu {
-    width: 250px;
-
     > ul {
       > li {
         > ul {

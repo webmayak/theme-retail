@@ -2,6 +2,7 @@
 @import "vars.scss";
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
 @import "global.scss";
+@import "blocks/jq-number.scss";
 @import "blocks/all-categories-btn.scss";
 @import "blocks/catalog-menu.scss";
 @import "blocks/page-search.scss";
@@ -12,3 +13,5 @@
 @import "blocks/slider.scss";
 @import "blocks/product-card.scss";
 @import "blocks/footer.scss";
+@import "blocks/cart.scss";
+@import "blocks/cart-table.scss";

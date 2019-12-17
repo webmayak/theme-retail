@@ -1,0 +1,61 @@
+.jq-number {
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  padding: 0 25px;
+}
+
+.jq-number__field {
+  width: 45px;
+  border: 1px solid #e7e7e7;
+
+  input {
+    appearance: textfield;
+    width: 100%;
+    border: none;
+    padding: 9px 0;
+    text-align: center;
+
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      margin: 0;
+      appearance: none;
+    }
+  }
+}
+
+.jq-number__spin {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 25px;
+  border: 1px solid #e7e7e7;
+  line-height: 40px;
+  user-select: none;
+  cursor: pointer;
+  transition: 0.25s;
+
+  &:hover {
+    color: $secondary;
+  }
+
+  &.minus {
+    left: 0;
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+
+    &::before {
+      content: '-';
+    }
+  }
+
+  &.plus {
+    right: 0;
+    border-radius: 0 4px 4px 0;
+    border-left: none;
+
+    &::before {
+      content: '+';
+    }
+  }
+}

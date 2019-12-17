@@ -1,6 +1,5 @@
 .slider {
   position: relative;
-  width: 1110px;
   padding-top: 30px;
 
   .owl-nav {
@@ -53,11 +52,5 @@
     font-weight: bold;
     color: #efec00;
     text-decoration: underline;
-  }
-}
-
-@media (max-width: 1499px) {
-  .slider {
-    width: 830px;
   }
 }

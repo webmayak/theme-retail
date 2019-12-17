@@ -24,7 +24,7 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
     ],
     'itemView' => '_view',
     'itemOptions' => [
-        'class' => 'col-md-3',
+        'class' => 'col-xl-3 col-lg-4 col-sm-6',
     ],
     'layout' => '{summary}<div class="row">{items}</div>{pager}',
     'pager' => [
