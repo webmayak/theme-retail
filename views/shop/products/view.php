@@ -208,9 +208,9 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="col-xxl-9 col-xl-8 col-lg-7">
                 <?php if($model->present()->getAttributesList() || $model->sku):?>
                     <div class="product__info-section mb-4">
-                        <h2 class="block__header">
+                        <div class="h2">
                             Основные характеристики
-                        </h2>
+                        </div>
                         <div class="product-title">
                             <?= Yii::$app->seo->getH1() ?>
                         </div>
@@ -239,9 +239,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?php if ($model->full_description) : ?>
                     <div class="product__info-section mb-4">
-                        <h2 class="block__header">
+                        <div class="h2">
                             Описание
-                        </h2>
+                        </div>
                         <div>
                             <?= $model->full_description ?>
                         </div>

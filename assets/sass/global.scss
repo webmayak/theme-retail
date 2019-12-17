@@ -119,19 +119,11 @@ h1 {
   }
 }
 
-.sidebar {
-  width: 300px;
-}
-
 .content {
   width: 1110px;
 }
 
 @media (max-width: 1499px) {
-  .sidebar {
-    width: 250px;
-  }
-
   .content {
     width: 830px;
   }

@@ -2,7 +2,7 @@
   width: 300px;
   flex-grow: 0 !important;
 
-  a {
+  > a {
     font-size: 18px !important;
     font-weight: 500 !important;
     color: #ffffff !important;
@@ -11,6 +11,20 @@
     background-position: 16px 50%;
     background-image: url("../images/all-categories.png");
     padding: 22px 16px !important;
+  }
+
+  &__dropdown {
+    display: none;
+    position: absolute;
+    z-index: 5;
+    top: 100%;
+    left: 0;
+  }
+
+  &:hover {
+    .all-categories-btn__dropdown {
+      display: block;
+    }
   }
 }
 

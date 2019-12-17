@@ -28,19 +28,10 @@ use yii\web\View;
                     <a href="<?= Url::to(['/shop/catalog']) ?>" class="navtext vsmenu-cat-toggle">
                         Все категории
                     </a>
-                    <?php if (0 && $categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
-                    <ul class="sub-menu">
-                        <?php foreach ($categories as $category): ?>
-                        <li>
-                            <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
-                        </li>
-                        <?php endforeach;?>
-                    </ul>
-                    <?php if ($this->beginCache('megamenu-dropdown', ['duration' => 86400])): ?>
-                    <?= $this->render('_dropdown', [
-                        'categories' => $catalogRoot->getChildren()->isInMenu()->all(),
-                    ]) ?>
-                    <?php $this->endCache(); endif; ?>
+                    <?php if ( Url::toRoute( Yii::$app->controller->getRoute() ) != '/content/content/view/index' ) : ?>
+                        <div class="all-categories-btn__dropdown">
+                            <?= $this->render('@theme/views/_catalog-menu') ?>
+                        </div>
                     <?php endif; ?>
                 </li>
                 <li class="<?= preg_match('/^payment-delivery$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
@@ -93,13 +84,9 @@ use yii\web\View;
                     </a>
                 </li>
                 <li class="active">
-                    <a class="navicon" href="<?= Url::to(['/shop/order/cart']) ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                            <use xlink:href="/images/sprite.svg#icon-cart"/>
-                        </svg>
-                        <span class="sr-only">Корзина</span>
-                        <span class="menu-cart-count">23</span>
-                    </a>
+                    <?=\common\modules\shop\widgets\cart\miniCart\MiniCartWidget::widget([
+                        'content' => 'Корзина',
+                    ])?>
                 </li>
             </ul>
         </nav>
