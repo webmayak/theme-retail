@@ -266,7 +266,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                         <div>
                             <div class="product-aside__item-title">Доставка по городу</div>
-                            <div class="product-aside__item-descr">Мы с легкостью доставим вам товар в приделах города</div>
+                            <div class="product-aside__item-descr">Мы с легкостью доставим вам товар в пределах города</div>
                         </div>
                     </li>
                     <li class="product-aside__item product-aside__item--accent">
