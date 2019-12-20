@@ -64,7 +64,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]); ?>
                 <div class="product__gallery-carouselDots owl-dots"></div>
                 <?php else: ?>
-                    <img src="https://via.placeholder.com/700x400" alt="<?= Html::encode($model->name) ?>">
+                    <img src="https://via.placeholder.com/700x400" alt="<?= Html::encode($model->name) ?>" class="img-fluid">
                 <?php endif; ?>
             </div>
         </div>
