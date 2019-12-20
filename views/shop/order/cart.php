@@ -29,7 +29,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <?php foreach ($items as $item): ?>
                 <tr data-id="<?= $item->product_id ?>">
                     <td>
-                        <img class="cart-table__item-img" src="https://via.placeholder.com/120">
+                        <img class="cart-table__item-img" style="height: auto; width: 50px" src="<?=$item->mainImage ? $item->mainImage : 'https://via.placeholder.com/50'?>" alt="<?= Html::encode($item->title) ?>">
                     </td>
                     <td>
                         <span class="cart-table__item-name">
