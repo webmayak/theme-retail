@@ -3,14 +3,11 @@
  * @var $model \common\modules\shop\models\ShopProduct
  */
 
-//$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/catalog']];
-use common\modules\shop\models\ShopProductTypeAttribute;
 use pantera\reviews\widgets\form\ReviewForm;
 use pantera\reviews\widgets\LatestReviews;
 use pantera\reviews\widgets\ReviewsList;
 use yii\helpers\ArrayHelper;
-use yii\helpers\Json;
-use yii\widgets\DetailView;
+use yii\helpers\Html;
 
 ?>
 
@@ -41,12 +38,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="col-lg-6 product__gallery">
             <div class="product__gallery-carousel">
                 <?php
-                $models = $model->attachments;
-                if ($model->media) {
-                    $models = ArrayHelper::merge([$model->media], $model->attachments);
-                }
-                echo \pantera\media\widgets\syncedOwls\SyncedOwls::widget([
-                    'models' => $models,
+                $attachments = $model->media
+                    ? ArrayHelper::merge([$model->media], $model->attachments)
+                    : $model->attachments;
+                ?>
+                <?php if ($attachments): ?>
+                <?= \pantera\media\widgets\syncedOwls\SyncedOwls::widget([
+                    'models' => $attachments,
                     'containerOptions' => [
                         'data' => [
                             'fancyboxoptions' => [
@@ -63,8 +61,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             ],
                         ]
                     ]
-                ]) ?>
+                ]); ?>
                 <div class="product__gallery-carouselDots owl-dots"></div>
+                <?php else: ?>
+                    <img src="https://via.placeholder.com/700x400" alt="<?= Html::encode($model->name) ?>">
+                <?php endif; ?>
             </div>
         </div>
         <div class="col-lg-6 product__overall">
