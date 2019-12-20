@@ -8,6 +8,11 @@ use common\modules\shop\widgets\productsListWidget\ProductsListWidgetConfigurati
 $this->title = $model->name;
 
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
+$parents = $model->parents;
+unset($parents[0]);
+foreach ($parents as $parent) {
+    $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => $parent->present()->getUrl()];
+}
 $this->params['breadcrumbs'][] = $this->title;
 
 $dataProvider->pagination = ['defaultPageSize' => 12];

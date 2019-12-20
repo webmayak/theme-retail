@@ -14,16 +14,18 @@ use yii\widgets\DetailView;
 
 ?>
 
-<?php //$parents = $model->category->parents;
+<?php
 
-//unset($parents[0]);
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
 
-//foreach ($parents as $parent) {
- //   $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => $parent->present()->getUrl()];
-//}
-//
+$parents = $model->category->parents;
+unset($parents[0]);
+foreach ($parents as $parent) {
+    $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => $parent->present()->getUrl()];
+}
+
 $this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => $model->category->present()->getUrl()];
+
 //if ($model->brand) {
 //    $this->params['breadcrumbs'][] = [
 //        'label' => $model->brand->name,
