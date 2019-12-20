@@ -9,7 +9,7 @@ use yii\widgets\MaskedInput;
 /* @var $this View */
 /* @var $model LeadGetRecommendations */
 /* @var $key string */
-$this->title = 'Получить рекомендации по лечению гепатита С';
+$this->title = 'Получить рекомендации';
 ?>
 <?php $form = ActiveForm::begin([
     'id' => 'lead-call-me-form',
