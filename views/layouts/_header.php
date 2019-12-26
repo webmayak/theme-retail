@@ -14,6 +14,47 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
 
 /* @var $this View */
 ?>
+<div class="pre-header">
+    <div class="container">
+        <div class="row align-items-center justify-content-between">
+            <div class="col-lg-auto mr-auto mb-3 mb-lg-0">
+                <div class="pre-header__menu">
+                    <?= Block::widget([
+                        'position' => 'preheader',
+                    ]) ?>
+                </div>
+            </div>
+            <div class="col-sm-auto ml-xl-5 mb-3 mb-sm-0">
+                <div class="pre-header__contact-item">
+                    <div class="pre-header__contact-item-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                            <use xlink:href="/images/sprite.svg#icon-tel"/>
+                        </svg>
+                    </div>
+                    <a class="pre-header__contact-item-text" href="tel:<?= Yii::$app->contactsManager->get('phone_city') ?>">
+                        <?= Yii::$app->contactsManager->get('phone_city') ?>
+                    </a>
+                </div>
+            </div>
+            <div class="col-sm-auto ml-xl-5 mb-3 mb-sm-0">
+                <div class="pre-header__city">
+                    Город: <a href="">Липецк</a>
+                </div>
+            </div>
+            <div class="col-sm-auto ml-xl-5">
+                <div class="pre-header__user d-flex align-items-center">
+                    <div class="pre-header__user-avatar">
+                        <img src="/images/login-icon.png" alt="">
+                    </div>
+                    <div class="pre-header__links">
+                        <a href="">Вход</a><br>
+                        <a href="">Регистрация</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <header class="header">
     <div class="container">
         <div class="row align-items-center">
