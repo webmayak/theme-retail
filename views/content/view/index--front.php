@@ -88,31 +88,19 @@ $this->context->layout = '//front';
     </div>
 </div>
 
-<?php if (0) : ?>
-    <div class="content-block">
+<?php if ($model->body || $model->seo->h1): ?>
+    <div class="content-block content-block--frontpage-content">
         <div class="container">
-            <div class="content-block__body">
-                <?= Block::widget([
-                    'position' => 'text_about',
-                ]) ?>
-            </div>
+            <?php if ($model->seo->h1) : ?>
+                <h1 class="title-home">
+                    <?= $model->seo->h1 ?>
+                </h1>
+            <?php endif; ?>
+            <?php if ($model->body) : ?>
+                <div class="editor-content">
+                    <?= $model->body ?>
+                </div>
+            <?php endif; ?>
         </div>
     </div>
-
-    <?php if ($model->body || $model->seo->h1): ?>
-        <div class="content-block content-block--frontpage-content">
-            <div class="container">
-                <?php if ($model->seo->h1) : ?>
-                    <h1 class="title-home">
-                        <?= $model->seo->h1 ?>
-                    </h1>
-                <?php endif; ?>
-                <?php if ($model->body) : ?>
-                    <div class="editor-content">
-                        <?= $model->body ?>
-                    </div>
-                <?php endif; ?>
-            </div>
-        </div>
-    <?php endif; ?>
 <?php endif; ?>
