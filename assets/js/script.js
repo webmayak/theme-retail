@@ -129,6 +129,11 @@ $(document).on('click', '.open-lead-modal', function () {
     return false;
 });
 
+$(document).on('shown.bs.modal', '.lead-modal', function () {
+    const btn = $('.open-lead-modal[data-loading]');
+    btn.ladda('remove');
+});
+
 var substringMatcher = function(strs) {
     return function findMatches(q, cb) {
         var matches, substringRegex;
@@ -150,21 +155,21 @@ var substringMatcher = function(strs) {
 var searchArr = [
     {
         value: 'Компьютер',
-        image: '/images/category-1.jpg'
+        image: '/images/search-2.jpg'
     },
     {
         value: 'Транзистор',
-        image: '/images/category-2.jpg'
+        image: '/images/search-2.jpg'
     },
     {
         value: 'Компьютер',
         category: 'Компьютеры',
-        image: '/images/category-3.jpg'
+        image: '/images/search-1.jpg'
     },
     {
         value: 'Транзистор',
         category: 'Транзисторы',
-        image: '/images/category-4.jpg'
+        image: '/images/search-1.jpg'
     }
 ];
 

@@ -34,7 +34,7 @@
 .hamburger-inner::before {
   width: 22px;
   height: 2px;
-  background-color: $success;
+  background-color: $secondary;
   border-radius: 2px;
   position: absolute;
   left: 0;
@@ -94,13 +94,12 @@
   background-color: transparent;
 
   &:focus {
-    outline: 1px dotted $success;
+    outline: 1px dotted $secondary;
   }
 }
 
 @media (min-width: 992px) {
   .megamenu {
-    border-top: 1px solid #e8edf2;
     border-bottom: 1px solid #e8edf2;
   }
 

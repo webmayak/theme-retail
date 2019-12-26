@@ -60,14 +60,6 @@ use yii\web\View;
                     </a>
                 </li>
                 <li>
-                    <a class="navicon" href="<?= Url::to(['/site/search']) ?>">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
-                            <use xlink:href="/images/sprite.svg#icon-search"/>
-                        </svg>
-                        <span class="sr-only">Поиск</span>
-                    </a>
-                </li>
-                <li>
                     <a class="navicon" href="<?= Url::to(['/site/favorite']) ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
                             <use xlink:href="/images/sprite.svg#icon-heart"/>
