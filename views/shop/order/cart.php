@@ -14,6 +14,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 ?>
 
+<?php Pjax::begin(['id' => 'cart']) ?>
 <main class="cart">
     <h1>Корзина</h1>
     <div class="table-responsive">
@@ -96,4 +97,5 @@ $this->params['breadcrumbs'][] = $this->title;
         <?= Html::a('Оформить заказ', '/shop/order/checkout', ['class' => 'btn btn-secondary btn-lg']) ?>
     </div>
 </main>
+<?php Pjax::end() ?>
 
