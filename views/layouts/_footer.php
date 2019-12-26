@@ -16,7 +16,7 @@ use yii\web\View;
     <div class="footer__middle">
         <div class="container">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6">
                     <div class="footer__social">
                         <div class="footer__title">Социальные сети</div>
                         <ul>
@@ -46,80 +46,58 @@ use yii\web\View;
                             </li>
                         </ul>
                     </div>
+                    <div class="footer__contacts mt-4">
+                        <div class="footer__title">Контакты</div>
+                        <ul class="footer__contact-list ul-reset">
+                            <li class="footer__contact-item">
+                                <div class="footer__contact-item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                                        <use xlink:href="/images/sprite.svg#icon-tel">
+                                        </use></svg>
+                                </div>
+                                <div class="footer__contact-item-text"><?= Yii::$app->contactsManager->get('phone_city') ?></div>
+                            </li>
+                            <li class="footer__contact-item">
+                                <div class="footer__contact-item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                                        <use xlink:href="/images/sprite.svg#icon-email">
+                                        </use></svg>
+                                </div>
+                                <div class="footer__contact-item-text"><?= Yii::$app->contactsManager->get('email') ?></div>
+                            </li>
+                            <li class="footer__contact-item">
+                                <div class="footer__contact-item-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                                        <use xlink:href="/images/sprite.svg#icon-city">
+                                        </use></svg>
+                                </div>
+                                <div class="footer__contact-item-text"><?= Yii::$app->contactsManager->get('address') ?></div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6 mt-4 mt-sm-0">
                     <div class="footer__menu">
                         <div class="footer__title">Информация</div>
-                        <ul>
-                            <li>
-                                <a href="">Способы оплаты</a>
-                            </li>
-                            <li>
-                                <a href="">Гарантия</a>
-                            </li>
-                            <li>
-                                <a href="">Доставка по России</a>
-                            </li>
-                            <li>
-                                <a href="">Наши партнеры</a>
-                            </li>
-                            <li>
-                                <a href="">Отзывы о компании</a>
-                            </li>
-                            <li>
-                                <a href="">Реквизиты</a>
-                            </li>
-                        </ul>
+                        <?= Block::widget([
+                            'position' => 'footer1',
+                        ]) ?>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6 mt-4 mt-lg-0">
                     <div class="footer__menu">
                         <div class="footer__title">Навигация</div>
-                        <ul>
-                            <li>
-                                <a href="">Способы оплаты</a>
-                            </li>
-                            <li>
-                                <a href="">Гарантия</a>
-                            </li>
-                            <li>
-                                <a href="">Доставка по России</a>
-                            </li>
-                            <li>
-                                <a href="">Наши партнеры</a>
-                            </li>
-                            <li>
-                                <a href="">Отзывы о компании</a>
-                            </li>
-                            <li>
-                                <a href="">Реквизиты</a>
-                            </li>
-                        </ul>
+                        <?= Block::widget([
+                            'position' => 'footer2',
+                        ]) ?>
                     </div>
                 </div>
-                <div class="col-lg-3">
+                <div class="col-lg-3 col-sm-6 mt-4 mt-lg-0">
                     <div class="footer__menu">
                         <div class="footer__title">Личный кабинет</div>
-                        <ul>
-                            <li>
-                                <a href="">Способы оплаты</a>
-                            </li>
-                            <li>
-                                <a href="">Гарантия</a>
-                            </li>
-                            <li>
-                                <a href="">Доставка по России</a>
-                            </li>
-                            <li>
-                                <a href="">Наши партнеры</a>
-                            </li>
-                            <li>
-                                <a href="">Отзывы о компании</a>
-                            </li>
-                            <li>
-                                <a href="">Реквизиты</a>
-                            </li>
-                        </ul>
+                        <?= Block::widget([
+                            'position' => 'footer3',
+                        ]) ?>
                     </div>
                 </div>
             </div>
