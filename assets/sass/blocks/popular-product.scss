@@ -1,0 +1,53 @@
+.popular-product {
+  background-color: #fcfcfc;
+
+  &__img-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 300px;
+    transition: 0.25s;
+
+    img {
+      width: auto !important;
+    }
+  }
+
+  &__bottom {
+    border-top: 1px solid #aedeff;
+    display: flex;
+    align-items: center;
+    min-height: 60px;
+    transition: 0.25s;
+  }
+
+  &__title {
+    font-size: 18px;
+    color: inherit;
+    text-align: center;
+    flex-grow: 1;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__to-cart {
+    display: none;
+    min-width: 180px;
+  }
+
+  &:hover {
+    .popular-product__img-wrap {
+      background-color: #fafafa;
+    }
+
+    .popular-product__bottom {
+      border-color: transparent;
+    }
+
+    .popular-product__to-cart {
+      display: block;
+    }
+  }
+}

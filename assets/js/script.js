@@ -187,3 +187,24 @@ $('.search-field').typeahead({
         }
     }
 });
+
+$('.popular-products__carousel').owlCarousel({
+    loop: true,
+    dots: false,
+    nav: true,
+    navText: [
+        '<i class="fa fa-long-arrow-left"></i>',
+        '<i class="fa fa-long-arrow-right"></i>'
+    ],
+    responsive : {
+        0 : {
+            items: 1
+        },
+        992 : {
+            items: 2
+        },
+        1200 : {
+            items: 3
+        }
+    }
+});

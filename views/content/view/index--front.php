@@ -23,7 +23,7 @@ $this->context->layout = '//front';
 ?>
 <div class="container">
     <div class="row">
-        <div class="col-auto">
+        <div class="col-auto d-none d-lg-block">
             <?= $this->render('@theme/views/_catalog-menu') ?>
         </div>
         <div class="col-auto">
@@ -44,31 +44,75 @@ $this->context->layout = '//front';
     </div>
 </div>
 
-
-
-<div class="content-block">
+<div class="popular-products mt-5">
     <div class="container">
-        <div class="content-block__body">
-            <?= Block::widget([
-                'position' => 'text_about',
-            ]) ?>
+        <h2>Популярные товары</h2>
+        <div class="popular-products__carousel owl-carousel">
+            <div class="popular-products__item popular-product">
+                <a href="#" class="popular-product__img-wrap">
+                    <img src="/images/popular-product-1.png" alt="">
+                </a>
+                <div class="popular-product__bottom">
+                    <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
+                    <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
+                </div>
+            </div>
+            <div class="popular-products__item popular-product">
+                <a href="#" class="popular-product__img-wrap">
+                    <img src="/images/popular-product-1.png" alt="">
+                </a>
+                <div class="popular-product__bottom">
+                    <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
+                    <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
+                </div>
+            </div>
+            <div class="popular-products__item popular-product">
+                <a href="#" class="popular-product__img-wrap">
+                    <img src="/images/popular-product-1.png" alt="">
+                </a>
+                <div class="popular-product__bottom">
+                    <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
+                    <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
+                </div>
+            </div>
+            <div class="popular-products__item popular-product">
+                <a href="#" class="popular-product__img-wrap">
+                    <img src="/images/popular-product-1.png" alt="">
+                </a>
+                <div class="popular-product__bottom">
+                    <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
+                    <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
 
-<?php if ($model->body || $model->seo->h1): ?>
-    <div class="content-block content-block--frontpage-content">
+<?php if (0) : ?>
+    <div class="content-block">
         <div class="container">
-            <?php if ($model->seo->h1) : ?>
-                <h1 class="title-home">
-                    <?= $model->seo->h1 ?>
-                </h1>
-            <?php endif; ?>
-            <?php if ($model->body) : ?>
-                <div class="editor-content">
-                    <?= $model->body ?>
-                </div>
-            <?php endif; ?>
+            <div class="content-block__body">
+                <?= Block::widget([
+                    'position' => 'text_about',
+                ]) ?>
+            </div>
         </div>
     </div>
+
+    <?php if ($model->body || $model->seo->h1): ?>
+        <div class="content-block content-block--frontpage-content">
+            <div class="container">
+                <?php if ($model->seo->h1) : ?>
+                    <h1 class="title-home">
+                        <?= $model->seo->h1 ?>
+                    </h1>
+                <?php endif; ?>
+                <?php if ($model->body) : ?>
+                    <div class="editor-content">
+                        <?= $model->body ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        </div>
+    <?php endif; ?>
 <?php endif; ?>

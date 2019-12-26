@@ -160,6 +160,12 @@ img {
   }
 }
 
+@media (max-width: 991px) {
+  .content {
+    width: 100%;
+  }
+}
+
 @media (max-width: 575px) {
   .page-item{
     &:first-child,

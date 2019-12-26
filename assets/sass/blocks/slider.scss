@@ -27,8 +27,9 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  left: 90px;
-  width: 500px;
+  left: 0;
+  right: 0;
+  padding: 30px 90px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -52,5 +53,38 @@
     font-weight: bold;
     color: #efec00;
     text-decoration: underline;
+  }
+}
+
+@media (max-width: 1199px) {
+  .content-slider__item-content {
+    .content-slider__item-row--1 {
+      font-size: 40px;
+    }
+
+    a {
+      margin-top: 30px;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .content-slider__item-content {
+    padding-left: 60px;
+    padding-right: 60px;
+
+    .content-slider__item-row--1 {
+      font-size: 32px;
+    }
+
+    a {
+      margin-top: 15px;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .slider {
+    display: none;
   }
 }

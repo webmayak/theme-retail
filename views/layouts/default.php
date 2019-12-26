@@ -44,9 +44,6 @@ $this->beginPage();
             padding: 0;
             background: transparent;
         }
-        footer {
-            margin-top: 30px;
-        }
         ul.pagination {
             align-items: center;
             justify-content: center;
