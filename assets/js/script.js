@@ -200,7 +200,7 @@ $('.popular-products__carousel').owlCarousel({
         0 : {
             items: 1
         },
-        992 : {
+        768 : {
             items: 2
         },
         1200 : {
