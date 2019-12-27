@@ -1,0 +1,21 @@
+.mm-menu {
+  a {
+    &.mm-navbar__title {
+      font-weight: bold;
+      color: $primary;
+    }
+  }
+}
+
+#mm-1 {
+  .mm-navbar {
+    display: none;
+  }
+}
+
+.mm-listitem_selected {
+  > .mm-listitem__text {
+    background-color: transparent;
+    color: $primary !important;
+  }
+}

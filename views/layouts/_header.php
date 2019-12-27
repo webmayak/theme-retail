@@ -58,12 +58,12 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
 <header class="header">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-lg-3 col-md-5">
-                <button type="button" class="wsnavtoggle d-lg-none" id="wsnavtoggle">
-                    <div class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </div>
-                </button>
+            <div class="col-lg-3 col-md-5 d-flex align-items-center">
+                <a class="mburger mburger--squeeze" href="#mmenu-nav">
+                    <b></b>
+                    <b></b>
+                    <b></b>
+                </a>
                 <a href="/" class="header__site-logo site-logo">
                     <img class="site-logo__img" src="/images/logo.png" alt="ENERGON">
                 </a>

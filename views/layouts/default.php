@@ -121,6 +121,64 @@ $this->beginPage();
 </div>
 
 <?= $this->render('_footer') ?>
+
+<nav id="mmenu-nav">
+    <ul>
+        <?php
+        $catalogIsActive = preg_match('/catalog/', Yii::$app->request->pathInfo);
+        $brandsIsActive = preg_match('/^brands/', Yii::$app->request->pathInfo);
+        ?>
+        <li class="<?= $catalogIsActive ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/shop/catalog']) ?>">
+                Все категории
+            </a>
+            <?php if (($catalogRoot = \common\modules\shop\models\ShopCategory::findOne(1)) && ($categories = $catalogRoot->getChildren()->andWhere(['status' => 1])->all())): ?>
+                <ul>
+                    <?php foreach ($categories as $category): ?>
+                        <li>
+                            <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
+                            <?php if ($lvl2cats = $category->getChildren()->andWhere(['status' => 1])->all()): ?>
+                                <ul>
+                                    <?php foreach ($lvl2cats as $lvl2cat): ?>
+                                        <li>
+                                            <a href="<?= $lvl2cat->present()->getUrl() ?>"><?= $lvl2cat->name ?></a>
+                                        </li>
+                                    <?php endforeach; ?>
+                                </ul>
+                            <?php endif; ?>
+                        </li>
+                    <?php endforeach;?>
+                </ul>
+            <?php endif; ?>
+        </li>
+        <li class="<?= preg_match('/^payment-delivery$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/payment-delivery']) ?>">
+                Оплата и доставка
+            </a>
+        </li>
+        <li class="<?= preg_match('/^partnership/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/partnership']) ?>">
+                Партнерам
+            </a>
+        </li>
+        <li class="<?= preg_match('/^for-customers/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/for-customers']) ?>">
+                Покупателям
+            </a>
+        </li>
+        <li class="<?= preg_match('/^about$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/about']) ?>">
+                О магазине
+            </a>
+        </li>
+        <li class="<?= preg_match('/^contacts/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
+            <a href="<?= Url::to(['/contacts']) ?>">
+                Контакты
+            </a>
+        </li>
+    </ul>
+</nav>
+
 <?php $this->endBody() ?>
 <?= Yii::$app->settings->get('script', 'default') ?>
 </body>
