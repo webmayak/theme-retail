@@ -4,7 +4,7 @@ namespace frontend\themes\retail;
 
 use pantera\content\OwlCarouserAsset;
 use pantera\media\widgets\syncedOwls\SyncedOwlsAsset;
-use yii\bootstrap\BootstrapPluginAsset;
+use pantera\leads\widgets\form\LeadFormAsset;
 use yii\web\AssetBundle;
 
 /**
@@ -39,6 +39,7 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         OwlCarouserAsset::class,
         SyncedOwlsAsset::class,
+        LeadFormAsset::class,
     ];
     public function init()
     {
