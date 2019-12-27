@@ -69,14 +69,7 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
                 </a>
             </div>
             <div class="col-lg-6 order-lg-0 order-3 mt-4 mt-lg-0">
-                <form class="search-form">
-                    <div class="input-group input-group-lg">
-                        <input class="search-form__field search-field form-control" type="text" placeholder="Что ищем?">
-                        <div class="input-group-append">
-                            <button type="submit" class="search-form__submit btn btn-primary"><span class="sr-only">Поиск</span></button>
-                        </div>
-                    </div>
-                </form>
+                <?= \frontend\themes\retail\widgets\search\Search::widget() ?>
             </div>
             <div class="col-lg-3 col-md-7 d-none d-md-block text-right">
                 <?= LeadForm::widget([
