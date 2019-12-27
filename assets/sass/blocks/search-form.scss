@@ -1,7 +1,7 @@
 .search-form {
   &__field {
     border-color: #e8edf2;
-    height: 60px;
+    height: 59px;
     color: #000000;
     font-size: 16px;
     font-weight: 300;
@@ -21,7 +21,6 @@
 
   &__submit {
     min-width: 60px;
-    height: 60px;
     background-repeat: no-repeat;
     background-position: 50%;
     background-image: url("../images/search.png");

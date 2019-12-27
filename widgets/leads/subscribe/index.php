@@ -16,17 +16,17 @@ use yii\widgets\ActiveForm;
         'class' => 'lead-form',
     ],
 ]) ?>
-<div class="row">
-    <div class="col-xs-8">
+<div class="row no-gutters">
+    <div class="col-xl-8 col-lg-7 col-sm-8">
         <?= $form->field($model, 'email')->textInput([
-            'placeholder' => 'Ваше E-mail',
+            'placeholder' => 'Введите ваш E-mail',
         ])->label(false) ?>
     </div>
-    <div class="col-xs-4">
-        <?= Html::submitButton(Html::tag('span', 'Подписаться', [
+    <div class="col-xl-4 col-lg-5 col-sm-4">
+        <?= Html::submitButton(Html::tag('span', '<i class="fa fa-envelope-o mr-2"></i> Подписаться', [
             'class' => 'ladda-label',
         ]), [
-            'class' => 'btn btn-primary btn-block ladda-button',
+            'class' => 'btn btn-lg btn-primary btn-block ladda-button',
             'data' => [
                 'style' => 'zoom-in'
             ],

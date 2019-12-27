@@ -96,15 +96,21 @@ $this->beginPage();
     ]) ?>
 </div>
 
-<?php if (0) : ?>
 <div class="section-subcribe">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="section-subcribe__title">Подпишитесь на наши новости</div>
-                <div class="section-subcribe__hint">Рекомендации по лечению, новые препараты, истории успешного лечения и другое!</div>
+        <div class="row align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="row align-items-center">
+                    <div class="col-sm-6 text-center d-none d-sm-block">
+                        <img src="/images/emblem.png" alt="">
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="section-subcribe__title">Подпишись на рассылку</div>
+                        <div class="section-subcribe__hint">Будь в курсе всех наших новостей!</div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <?= LeadForm::widget([
                     'key' => 'subscribe',
                     'mode' => LeadForm::MODE_INLINE,
@@ -113,7 +119,6 @@ $this->beginPage();
         </div>
     </div>
 </div>
-<?php endif; ?>
 
 <?= $this->render('_footer') ?>
 <?php $this->endBody() ?>
