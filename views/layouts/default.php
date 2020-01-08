@@ -70,9 +70,6 @@ $this->beginPage();
             padding-left: 20px;
             margin: 6px 0;
         }
-        .products-list .summary {
-            margin-top: 20px;
-        }
         .error-page {
             margin: 60px 0;
         }

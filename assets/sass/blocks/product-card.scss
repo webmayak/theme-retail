@@ -198,9 +198,39 @@
 
   .add-to-cart-form {
     flex-grow: 1;
+
+    .btn {
+      height: 100%;
+    }
   }
 }
 
 .product-card__to-cart svg {
   margin-left: 5px;
+}
+
+@media (max-width: 1499px) and (min-width: 1200px) {
+  .product-card__to-cart {
+    font-size: 0;
+
+    svg {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 767px) and (min-width: 576px) {
+  .product-card__to-cart {
+    font-size: 0;
+
+    svg {
+      margin-left: 0;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .product-card__to-cart {
+    font-size: 14px;
+  }
 }
