@@ -144,6 +144,10 @@ img {
   }
 }
 
+.list-group-item + .list-group-item {
+  border-top-width: 1px;
+}
+
 .content {
   width: 1110px;
 }

@@ -43,40 +43,11 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
     </div>
     <div class="col-lg-3">
         <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
-            <ul class="category-nav">
+            <div class="list-group">
                 <?php foreach ($categories as $category): ?>
-                    <li>
-                        <a href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
-                        <?php if ($lvl2cats = $category->getChildren()->andWhere(['status' => 1])->all()): ?>
-                            <ul>
-                                <?php foreach ($lvl2cats as $lvl2cat): ?>
-                                    <li>
-                                        <a href="<?= $lvl2cat->present()->getUrl() ?>"><?= $lvl2cat->name ?></a>
-                                        <?php if ($lvl3cats = $lvl2cat->getChildren()->andWhere(['status' => 1])->all()): ?>
-                                            <ul>
-                                                <?php foreach ($lvl3cats as $lvl3cat): ?>
-                                                    <li>
-                                                        <a href="<?= $lvl3cat->present()->getUrl() ?>"><?= $lvl3cat->name ?></a>
-                                                        <?php if ($lvl4cats = $lvl3cat->getChildren()->andWhere(['status' => 1])->all()): ?>
-                                                            <ul>
-                                                                <?php foreach ($lvl4cats as $lvl4cat): ?>
-                                                                    <li>
-                                                                        <a href="<?= $lvl4cat->present()->getUrl() ?>"><?= $lvl4cat->name ?></a>
-                                                                    </li>
-                                                                <?php endforeach; ?>
-                                                            </ul>
-                                                        <?php endif; ?>
-                                                    </li>
-                                                <?php endforeach; ?>
-                                            </ul>
-                                        <?php endif; ?>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-                        <?php endif; ?>
-                    </li>
+                    <a class="list-group-item list-group-item-action" href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
                 <?php endforeach;?>
-            </ul>
+            </div>
         <?php endif; ?>
     </div>
 </div>
