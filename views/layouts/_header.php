@@ -1,18 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: singletonn
- * Date: 10/16/18
- * Time: 11:33 AM
- */
 
-use kartik\widgets\Typeahead;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
 use pantera\content\widgets\block\Block;
 use pantera\leads\widgets\form\LeadForm;
-use pantera\geolocation\widgets\geolocation\Geolocation;
+
 /* @var $this View */
 ?>
 <div class="pre-header">
@@ -71,9 +64,101 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
             </div>
             <div class="col-lg-6 order-lg-0 order-3 mt-4 mt-lg-0">
                 <form class="search-form">
-                    <div class="input-group-lg">
-                        <div class="header_search">
-                            <?= \common\modules\shop\widgets\search\Search::widget(['id' => 'saerch-widget-head']) ?>
+                    <div class="input-group input-group-lg">
+                        <?php 
+                        $resultItemTemplate = '<div class="media" style="margin: 0;">
+                            <div class="media-left"><img src="{{img}}" class="media-object" style="width:50px"></div>
+                            <div class="media-body"><p class="typeahead-name">{{name}}</p><p class="typeahead-sku" style="overflow: hidden;">{{sku}}</p><p>{{price}}</p></div>
+                        </div>';
+                        /*
+                        var substringMatcher = function(strs) {
+                            return function findMatches(q, cb) {
+                                var matches, substringRegex;
+
+                                matches = [];
+
+                                substrRegex = new RegExp(q, 'i');
+
+                                $.each(strs, function(i, str) {
+                                    if (substrRegex.test(str.value)) {
+                                        matches.push(str);
+                                    }
+                                });
+
+                                cb(matches);
+                            };
+                        };
+
+                        var searchArr = [
+                            {
+                                value: 'Компьютер',
+                                image: '/images/search-2.jpg'
+                            },
+                            {
+                                value: 'Транзистор',
+                                image: '/images/search-2.jpg'
+                            },
+                            {
+                                value: 'Компьютер',
+                                category: 'Компьютеры',
+                                image: '/images/search-1.jpg'
+                            },
+                            {
+                                value: 'Транзистор',
+                                category: 'Транзисторы',
+                                image: '/images/search-1.jpg'
+                            }
+                        ];
+
+                        $('.search-field').typeahead({
+                            hint: false,
+                            highlight: true
+                        },
+                        {
+                            source: substringMatcher(searchArr),
+                            display: 'value',
+                            templates: {
+                                empty: '<div class="tt-empty">По вашему запросу ничего не найдено</div>',
+                                suggestion: function(data) {
+                                    return '<div><img class="tt-img" src="' + data.image + '" width="30">' + data.value + (data.category ? ' <span class="tt-category">в категории</span> <span class="tt-category-name">' + data.category + '</span>' : '') + '</div>';
+                                }
+                            }
+                        });
+
+                        */
+                        ?>
+                        <?= \common\modules\shop\widgets\search\Search::widget([
+                            'id' => 'search-widget-head',
+                            'name' => 'q',
+                            'pluginOptions' => [
+                                'highlight' => true,
+                            ],
+                            'options' => [
+                                'placeholder' => 'Поиск товаров',
+                                'class' => 'search-form__field search-field form-control',
+                                'autocomplete' => 'off',
+                            ],
+                            'value' => Yii::$app->request->get('q'),
+                            'dataset' => [
+                                [
+                                    'limit' => 15,
+                                    'display' => 'value',
+                                    'remote' => [
+                                        'url' => Url::to(['/shop/search']) . '?q=%QUERY',
+                                        'wildcard' => '%QUERY'
+                                    ],
+                                    'templates' => [
+                                        'notFound' => '<div style="padding:6px 8px">Нет результатов</div>',
+                                        'suggestion' => new \yii\web\JsExpression("Handlebars.compile(`" . $resultItemTemplate . "`)")
+                                    ],
+                                ]
+                            ],
+                            'pluginEvents' => [
+                                "typeahead:select" => "function(obj, selected, name) { window.location = selected.url }",
+                            ],                                
+                        ]) ?>
+                        <div class="input-group-append">
+                            <button type="submit" class="search-form__submit btn btn-primary"><span class="sr-only">Поиск</span></button>
                         </div>
                     </div>
                 </form>
