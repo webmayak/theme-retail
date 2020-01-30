@@ -6,12 +6,13 @@
  * Time: 11:33 AM
  */
 
+use kartik\widgets\Typeahead;
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\web\View;
 use pantera\content\widgets\block\Block;
 use pantera\leads\widgets\form\LeadForm;
 use pantera\geolocation\widgets\geolocation\Geolocation;
-
 /* @var $this View */
 ?>
 <div class="pre-header">
@@ -70,10 +71,9 @@ use pantera\geolocation\widgets\geolocation\Geolocation;
             </div>
             <div class="col-lg-6 order-lg-0 order-3 mt-4 mt-lg-0">
                 <form class="search-form">
-                    <div class="input-group input-group-lg">
-                        <input class="search-form__field search-field form-control" type="text" placeholder="Что ищем?">
-                        <div class="input-group-append">
-                            <button type="submit" class="search-form__submit btn btn-primary"><span class="sr-only">Поиск</span></button>
+                    <div class="input-group-lg">
+                        <div class="header_search">
+                            <?= \common\modules\shop\widgets\search\Search::widget(['id' => 'saerch-widget-head']) ?>
                         </div>
                     </div>
                 </form>

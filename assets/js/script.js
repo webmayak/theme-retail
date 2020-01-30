@@ -134,6 +134,7 @@ $(document).on('shown.bs.modal', '.lead-modal', function () {
     btn.ladda('remove');
 });
 
+/*
 var substringMatcher = function(strs) {
     return function findMatches(q, cb) {
         var matches, substringRegex;
@@ -187,6 +188,8 @@ $('.search-field').typeahead({
         }
     }
 });
+
+*/
 
 $('.popular-products__carousel').owlCarousel({
     loop: true,
