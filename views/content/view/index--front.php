@@ -56,6 +56,9 @@ $this->context->layout = '//front';
                     <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
                     <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
                 </div>
+                <button class="popular-product__to-fav" type="button">
+                    <i class="fa fa-heart-o"></i>
+                </button>
             </div>
             <div class="popular-products__item popular-product">
                 <a href="#" class="popular-product__img-wrap">
@@ -65,6 +68,9 @@ $this->context->layout = '//front';
                     <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
                     <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
                 </div>
+                <button class="popular-product__to-fav" type="button">
+                    <i class="fa fa-heart-o"></i>
+                </button>
             </div>
             <div class="popular-products__item popular-product">
                 <a href="#" class="popular-product__img-wrap">
@@ -74,6 +80,9 @@ $this->context->layout = '//front';
                     <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
                     <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
                 </div>
+                <button class="popular-product__to-fav" type="button">
+                    <i class="fa fa-heart-o"></i>
+                </button>
             </div>
             <div class="popular-products__item popular-product">
                 <a href="#" class="popular-product__img-wrap">
@@ -83,6 +92,9 @@ $this->context->layout = '//front';
                     <a class="popular-product__title" href="#">Диод 1N4007 DO-201D</a>
                     <button type="submit" class="popular-product__to-cart btn btn-lg btn-primary">В корзину</button>
                 </div>
+                <button class="popular-product__to-fav" type="button">
+                    <i class="fa fa-heart-o"></i>
+                </button>
             </div>
         </div>
     </div>

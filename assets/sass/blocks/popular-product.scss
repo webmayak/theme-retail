@@ -1,15 +1,17 @@
 .popular-product {
+  position: relative;
   background-color: #fcfcfc;
 
   &__img-wrap {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 300px;
+    height: 300px;
     transition: 0.25s;
 
     img {
       width: auto !important;
+      max-height: 100%;
     }
   }
 
@@ -22,10 +24,15 @@
   }
 
   &__title {
+    padding: 0 15px;
     font-size: 18px;
+    font-weight: 500;
     color: inherit;
     text-align: center;
     flex-grow: 1;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 
     &:hover {
       text-decoration: none;
@@ -35,6 +42,29 @@
   &__to-cart {
     display: none;
     min-width: 180px;
+  }
+
+  &__to-fav {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: none;
+    background-color: transparent;
+    padding: 20px;
+    font-size: 20px;
+    line-height: 1;
+    cursor: pointer;
+    transition: 0.25s;
+
+    &:hover {
+      color: $primary;
+    }
+
+    &:focus {
+      outline: none;
+      background-color: rgba($primary, 0.1);
+    }
   }
 
   &:hover {
@@ -47,6 +77,10 @@
     }
 
     .popular-product__to-cart {
+      display: block;
+    }
+
+    .popular-product__to-fav {
       display: block;
     }
   }

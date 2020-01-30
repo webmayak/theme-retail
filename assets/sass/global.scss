@@ -144,8 +144,31 @@ img {
   }
 }
 
+.list-group-item + .list-group-item {
+  border-top-width: 1px;
+}
+
 .content {
   width: 1110px;
+}
+
+.mburger {
+  color: $secondary;
+  --mb-button-size: 30px;
+  --mb-bar-spacing: 9px;
+  --mb-bar-width: 1;
+  --mb-animate-timeout: 0s;
+  --mb-bar-height: 2px;
+
+  &:hover {
+    color: darken($secondary, 8%);
+  }
+}
+
+@media (min-width: 1200px) {
+  .mburger {
+    display: none;
+  }
 }
 
 @media (max-width: 1499px) {

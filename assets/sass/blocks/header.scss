@@ -11,6 +11,12 @@
   margin-top: 10px;
 }
 
+@media (max-width: 1199px) {
+  .header__site-logo {
+    margin-left: 15px;
+  }
+}
+
 @media (max-width: 991px) {
   .header__btn + .header__btn {
     margin-top: 0;

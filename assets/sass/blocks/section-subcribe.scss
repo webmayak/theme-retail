@@ -1,0 +1,42 @@
+.section-subcribe {
+  padding: 60px 0;
+
+  &__title {
+    font-size: 28px;
+    line-height: 1;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+
+  &__hint {
+    font-size: 16px;
+  }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  .form-control {
+    height: 59px;
+    font-size: 16px;
+    padding-left: 20px;
+  }
+
+  .btn {
+    .ladda-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+@media (max-width: 575px) {
+  .section-subcribe {
+    .btn {
+      .ladda-label {
+        justify-content: center;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
-.wsmenu {
-  font-family: inherit;
+.megamenu {
+  border-bottom: 1px solid #e8edf2;
 }
 
 .megamenu__icon {
@@ -21,255 +21,100 @@
   margin-left: 3px;
 }
 
-.hamburger-box {
-  width: 22px;
-  height: 14px;
-  display: inline-block;
-  position: relative;
-  margin-top: 8px;
-}
+.wsmenu {
+  font-family: inherit;
+  border-left: none;
+  width: 100%;
+  height: auto!important;
+  font-size: 18px;
+  color: inherit;
 
-.hamburger-inner,
-.hamburger-inner::after,
-.hamburger-inner::before {
-  width: 22px;
-  height: 2px;
-  background-color: $secondary;
-  border-radius: 2px;
-  position: absolute;
-  left: 0;
-  transition-property: transform;
-  transition-duration: .15s;
-  transition-timing-function: ease;
-}
+  > .wsmenu-list {
+    display: flex;
+    flex-wrap: wrap;
 
-.hamburger-inner {
-  top: auto;
-  bottom: 0;
-  transition-duration: .15s;
-  transition-delay: .15s;
-  transition-timing-function: cubic-bezier(.55, .055, .675, .19);
+    > li {
+      position: relative;
+      flex-grow: 1;
 
-  &::after,
-  &::before {
-    content: '';
-    display: block;
-  }
+      &:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        top: 12px;
+        bottom: 12px;
+        width: 1px;
+        background-color: #959595;
+        opacity: 0.2;
+      }
 
-  &::before {
-    top: -7px;
-    transition: top .12s .3s cubic-bezier(.33333, .66667, .66667, 1), transform .15s cubic-bezier(.55, .055, .675, .19);
-  }
-
-  &::after {
-    top: -14px;
-    transition: top .3s .3s cubic-bezier(.33333, .66667, .66667, 1), opacity .1s linear;
-  }
-}
-
-.wsactive {
-  .hamburger-inner {
-    transform: translate3d(0, -7px, 0) rotate(-45deg);
-    transition-delay: .32s;
-    transition-timing-function: cubic-bezier(.215, .61, .355, 1);
-
-    &::before {
-      top: 0;
-      -ms-transform: rotate(-90deg);
-      transform: rotate(-90deg);
-      transition: top .12s .18s cubic-bezier(.33333, 0, .66667, .33333), transform .15s .42s cubic-bezier(.215, .61, .355, 1);
-    }
-
-    &::after {
-      top: 0;
-      opacity: 0;
-      transition: top .3s cubic-bezier(.33333, 0, .66667, .33333), opacity .1s .27s linear;
-    }
-  }
-}
-
-.wsnavtoggle {
-  vertical-align: middle;
-  border: none;
-  background-color: transparent;
-
-  &:focus {
-    outline: 1px dotted $secondary;
-  }
-}
-
-@media (min-width: 992px) {
-  .megamenu {
-    border-bottom: 1px solid #e8edf2;
-  }
-
-  .wsmenu {
-    border-left: none;
-    width: 100%;
-    height: auto!important;
-    font-size: 18px;
-    color: inherit;
-
-    > .wsmenu-list {
-      display: flex;
-      flex-wrap: wrap;
-
-      > li {
-        position: relative;
-        flex-grow: 1;
-
-        &:not(:last-child)::after {
-          content: '';
-          position: absolute;
-          right: 0;
-          top: 12px;
-          bottom: 12px;
-          width: 1px;
-          background-color: #959595;
-          opacity: 0.2;
-        }
-
-        &.active {
-          > a {
-            color: $primary;
-          }
-        }
-
-        &:last-child {
-          > a {
-            padding-right: 0;
-          }
-        }
-
+      &.active {
         > a {
-          color: #535353;
-          transition: 0.25s;
-
-          &:hover {
-            color: $primary;
-          }
-        }
-
-        > .navtext {
-          display: flex;
-          align-items: center;
-          padding: 22px 12px;
-          justify-content: center;
-
-          .fa {
-            font-size: 8px;
-            position: relative;
-            top: 1px;
-            margin-left: 3px;
-          }
-        }
-
-        > .navicon {
-          padding: 14px;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          color: #cacaca;
-        }
-
-        > ul.sub-menu {
-          top: 100%;
-          border: none;
-
-          > li {
-            > a {
-              color: #535353;
-              padding: 13px 20px;
-              transition: background-color 0.25s;
-
-              &:hover {
-                background-color: $primary;
-                color: #ffffff;
-              }
-            }
-          }
+          color: $primary;
         }
       }
-    }
-  }
-}
 
-@media (max-width: 991px) {
-  .wsmenu {
-    >.wsmenu-list {
-      background-color: $primary;
-
-      > li {
-        .wsmenu-click {
-          height: auto;
-          bottom: 0;
-
-          .fa {
-            margin-top: 12px;
-          }
+      &:last-child {
+        > a {
+          padding-right: 0;
         }
+      }
 
-        a {
-          color: #ffffff;
+      > a {
+        color: #535353;
+        transition: 0.25s;
 
-          .fa {
-            display: none;
-          }
+        &:hover {
+          color: $primary;
         }
+      }
 
-        > .navtext {
-          text-align: left;
+      > .navtext {
+        display: flex;
+        align-items: center;
+        padding: 22px 12px;
+        justify-content: center;
+
+        .fa {
+          font-size: 8px;
+          position: relative;
+          top: 1px;
+          margin-left: 3px;
         }
+      }
 
-        > .navicon {
-          svg {
-            width: 14px;
-          }
+      > .navicon {
+        padding: 14px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #cacaca;
+      }
 
-          .sr-only {
-            width: auto;
-            height: auto;
-            clip: auto;
-            position: static;
-            margin-left: 5px;
-          }
-        }
+      > ul.sub-menu {
+        top: 100%;
+        border: none;
 
-        ul.sub-menu {
-          opacity: 1;
-          visibility: visible;
-          transform: rotateX(0deg);
-          background-color: $success;
-          border: 0;
-
-          > li {
-            > a {
-              color: #ffffff;
-              border-color: #ffffff;
-            }
+        > li {
+          > a {
+            color: #535353;
+            padding: 13px 20px;
+            transition: background-color 0.25s;
 
             &:hover {
-              > a {
-                background-color: rgba(0, 0, 0, 0.08);
-                text-decoration: none;
-                color: #ffffff;
-              }
+              background-color: $primary;
+              color: #ffffff;
             }
           }
         }
       }
     }
   }
+}
 
-  .megamenu__icon {
-    color: inherit;
-    position: relative;
-    top: -2px;
-    width: 14px;
-  }
-
-  .menu-cart-count {
-    color: $primary;
+@media (max-width: 1199px) {
+  .megamenu {
+    display: none;
   }
 }

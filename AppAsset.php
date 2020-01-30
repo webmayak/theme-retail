@@ -4,7 +4,7 @@ namespace frontend\themes\retail;
 
 use pantera\content\OwlCarouserAsset;
 use pantera\media\widgets\syncedOwls\SyncedOwlsAsset;
-use yii\bootstrap\BootstrapPluginAsset;
+use pantera\leads\widgets\form\LeadFormAsset;
 use yii\web\AssetBundle;
 
 /**
@@ -21,6 +21,8 @@ class AppAsset extends AssetBundle
         // 'css/medical-theme-default.css',
         // 'css/kingcomposer.min.css',
         // 'css/medical-style.css',
+        'css/mburger.css',
+        'css/mmenu.css',
         'css/main.min.css',
         // 'css/responsive.css',
         //'css/colors.less',
@@ -31,6 +33,7 @@ class AppAsset extends AssetBundle
         'js/typeahead.jquery.min.js',
         'js/jquery.formstyler.min.js',
         'js/webslidemenu/webslidemenu.js',
+        'js/mmenu.js',
         'js/jquery.goup.min.js',
         'js/js.cookie.js',
         'js/script.js',
@@ -39,6 +42,7 @@ class AppAsset extends AssetBundle
         'yii\web\YiiAsset',
         OwlCarouserAsset::class,
         SyncedOwlsAsset::class,
+        LeadFormAsset::class,
     ];
     public function init()
     {

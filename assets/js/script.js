@@ -1,3 +1,19 @@
+document.addEventListener(
+    "DOMContentLoaded", () => {
+        const menu = new Mmenu( "#mmenu-nav", {
+            "extensions": [
+                "pagedim-black",
+                "border-full",
+                "theme-white"
+            ]
+        }, {
+            classNames: {
+                selected: "active"
+            }
+        });
+    }
+);
+
 function CollapseHandler() {
     const collapse = $('.footer-menu [data-toggle]');
     if (window.matchMedia('(max-width: 991px)').matches) {
@@ -203,7 +219,7 @@ $('.popular-products__carousel').owlCarousel({
         0 : {
             items: 1
         },
-        992 : {
+        768 : {
             items: 2
         },
         1200 : {

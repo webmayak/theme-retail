@@ -21,21 +21,33 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
  * @var $dataProvider \yii\data\ActiveDataProvider
  */
 ?><h1><?=$this->title?></h1>
-
-<?= \yii\widgets\ListView::widget([
-    'dataProvider' => $dataProvider,
-    'options' => [
-        'class' => 'products-list',
-    ],
-    'itemView' => '_view',
-    'itemOptions' => [
-        'class' => 'col-xl-3 col-lg-4 col-sm-6',
-    ],
-    'layout' => '{summary}<div class="row">{items}</div>{pager}',
-    'pager' => [
-        'class' => 'yii\bootstrap4\LinkPager',
-        'options' => [
-            'class' => 'text-center',
-        ],
-    ],
-]) ?>
+<div class="row">
+    <div class="col-lg-9 order-lg-2">
+        <?= \yii\widgets\ListView::widget([
+            'dataProvider' => $dataProvider,
+            'options' => [
+                'class' => 'products-list',
+            ],
+            'itemView' => '_view',
+            'itemOptions' => [
+                'class' => 'col-xl-4 col-lg-6 col-sm-6',
+            ],
+            'layout' => '{summary}<div class="row">{items}</div>{pager}',
+            'pager' => [
+                'class' => 'yii\bootstrap4\LinkPager',
+                'options' => [
+                    'class' => 'text-center',
+                ],
+            ],
+        ]) ?>
+    </div>
+    <div class="col-lg-3">
+        <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
+            <div class="list-group">
+                <?php foreach ($categories as $category): ?>
+                    <a class="list-group-item list-group-item-action" href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
+                <?php endforeach;?>
+            </div>
+        <?php endif; ?>
+    </div>
+</div>
