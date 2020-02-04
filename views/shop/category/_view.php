@@ -13,11 +13,11 @@ use yii\helpers\Html;
             <div>скидка</div>
         </div>
     <?php endif;?>
-    <a href="/shop/products/view?id=<?= $model->id ?>">
+    <a href="/<?=$model->present()->getUrl()?>">
         <img class="product-card__img" src="<?=$model->media ? $model->media->image() : 'https://via.placeholder.com/150' ?>" alt="<?= Html::encode($model->name) ?>">
     </a>
     <!-- кустарно, дальше переделать -->
-    <a href="/shop/products/view?id=<?= $model->id ?>" class="product-card__title-link">
+    <a href="/<?=$model->present()->getUrl()?>" class="product-card__title-link">
         <h3 class="product-card__title"><?=$model->getParentWithVariantName()?></h3>
     </a>
     <ul class="product-card__params ul-reset">
