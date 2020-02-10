@@ -49,5 +49,30 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
                 <?php endforeach;?>
             </div>
         <?php endif; ?>
+
+        <?php
+        $attributes = \common\modules\shop\models\ShopProductTypeAttribute::find()
+            ->andWhere(['is_for_filter' => 1])
+            ->all();
+        ?>
+        <form class="filter mt-5">
+            <?php foreach ($attributes as $attribute) : ?>
+                <?php $default_values = preg_split('/\n/', $attribute->default_values); ?>
+                <fieldset class="filter__additional-item">
+                    <legend class="filter__additional-title"><?= $attribute->name ?>:</legend>
+                    <div class="filter__content">
+                        <div class="filter__option-labels-wrap">
+                            <?php foreach ($default_values as $value) : ?>
+                                <label class="filter__option-label">
+                                    <input class="filter__option-input sr-only" type="checkbox" name="filter-<?= $attribute->id ?>">
+                                    <span class="filter__option-control"><?= $value ?></span>
+                                </label>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                </fieldset>
+            <?php endforeach; ?>
+        </form>
+
     </div>
 </div>
