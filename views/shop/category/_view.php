@@ -25,18 +25,6 @@ use yii\helpers\Html;
         <div class="product-card__param-text" style="text-align: justify">
             <?= $model->description ?>
         </div>
-        <?php foreach ($model->productAttributeValues as $attributeValue):?>
-            <li class="product-card__param">
-                <div class="product-card__param-icon-wrap">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15">
-                        <use xlink:href="#icon-address"></use>
-                    </svg>ß
-                </div>
-                <div class="product-card__param-text">
-                    <?=$attributeValue->attribute0->name?>: <b><?=$attributeValue->attribute_value?></b>
-                </div>
-            </li>
-        <?php endforeach;?>
     </ul>
     <?php if($model->default_price > 0):?>
         <div class="product-card__old-price">Старая цена:
