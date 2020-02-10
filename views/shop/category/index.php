@@ -1,5 +1,6 @@
 <?php
 
+use yii\helpers\Html;
 use common\modules\shop\widgets\productFilter\ProductFilter;
 use common\modules\shop\widgets\productFilter\ProductFilterWidgetConfiguration;
 use common\modules\shop\widgets\productsListWidget\ProductsListWidget;
@@ -42,20 +43,13 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
         ]) ?>
     </div>
     <div class="col-lg-3">
-        <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
-            <div class="list-group">
-                <?php foreach ($categories as $category): ?>
-                    <a class="list-group-item list-group-item-action" href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
-                <?php endforeach;?>
-            </div>
-        <?php endif; ?>
 
         <?php
         $attributes = \common\modules\shop\models\ShopProductTypeAttribute::find()
             ->andWhere(['is_for_filter' => 1])
             ->all();
         ?>
-        <form class="filter mt-5">
+        <form class="filter" method="get">
             <?php foreach ($attributes as $attribute) : ?>
                 <?php $default_values = preg_split('/\n/', $attribute->default_values); ?>
                 <fieldset class="filter__additional-item">
@@ -64,15 +58,31 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
                         <div class="filter__option-labels-wrap">
                             <?php foreach ($default_values as $value) : ?>
                                 <label class="filter__option-label">
-                                    <input class="filter__option-input sr-only" type="checkbox" name="filter-<?= $attribute->id ?>">
-                                    <span class="filter__option-control"><?= $value ?></span>
+                                    <input class="filter__option-input sr-only" type="checkbox" name="attribute[<?= $attribute->id ?>][]" value="<?= Html::encode($value) ?>">
+                                    <span class="filter__option-control"><?= Html::encode($value) ?></span>
                                 </label>
                             <?php endforeach; ?>
                         </div>
                     </div>
                 </fieldset>
             <?php endforeach; ?>
+            <div class="row">
+                <div class="col-lg-6">
+                    <button class="btn btn-lg btn-block btn-primary">Применить</button>
+                </div>
+                <div class="col-lg-6">
+                    <button class="btn btn-lg btn-block btn-warning" type="reset">Очистить</button>
+                </div>
+            </div>
         </form>
+
+        <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
+            <div class="list-group mt-5">
+                <?php foreach ($categories as $category): ?>
+                    <a class="list-group-item list-group-item-action" href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>
+                <?php endforeach;?>
+            </div>
+        <?php endif; ?>
 
     </div>
 </div>
