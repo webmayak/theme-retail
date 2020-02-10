@@ -44,37 +44,9 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
     </div>
     <div class="col-lg-3">
 
-        <?php
-        $attributes = \common\modules\shop\models\ShopProductTypeAttribute::find()
-            ->andWhere(['is_for_filter' => 1])
-            ->all();
-        ?>
-        <form class="filter" method="get">
-            <?php foreach ($attributes as $attribute) : ?>
-                <?php $default_values = preg_split('/\n/', $attribute->default_values); ?>
-                <fieldset class="filter__additional-item">
-                    <legend class="filter__additional-title"><?= $attribute->name ?>:</legend>
-                    <div class="filter__content">
-                        <div class="filter__option-labels-wrap">
-                            <?php foreach ($default_values as $value) : ?>
-                                <label class="filter__option-label">
-                                    <input class="filter__option-input sr-only" type="checkbox" name="attribute[<?= $attribute->id ?>][]" value="<?= Html::encode($value) ?>">
-                                    <span class="filter__option-control"><?= Html::encode($value) ?></span>
-                                </label>
-                            <?php endforeach; ?>
-                        </div>
-                    </div>
-                </fieldset>
-            <?php endforeach; ?>
-            <div class="row">
-                <div class="col-lg-6">
-                    <button class="btn btn-lg btn-block btn-primary">Применить</button>
-                </div>
-                <div class="col-lg-6">
-                    <button class="btn btn-lg btn-block btn-warning" type="reset">Очистить</button>
-                </div>
-            </div>
-        </form>
+        <?= \common\modules\shop\widgets\productFilter\ProductFilter::widget([
+            'searchModel' => $searchModel,
+        ]) ?>
 
         <?php if ($categories = \common\modules\shop\models\ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
             <div class="list-group mt-5">
