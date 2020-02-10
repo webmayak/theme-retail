@@ -119,22 +119,22 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="panel panel-default product__panel mb-4">
                 <div class="panel-body">
                     <div class="card-header__labels">
-                        <?php if($model->present()->isInSegment('novinki')):?>
+                        <?php if($model->isInSegment('novinki')):?>
                             <div class="label-flag label-green">
                                 NEW
                             </div>
                         <?php endif;?>
-                        <?php if($model->present()->isInSegment('hity-prodazh')):?>
+                        <?php if($model->isInSegment('hity-prodazh')):?>
                             <div class="label-flag label-blue">
                                 ХИТ
                             </div>
                         <?php endif;?>
-                        <?php if($model->present()->isInSegment('skidki')):?>
+                        <?php if($model->isInSegment('skidki')):?>
                             <div class="label-flag label-purple">
                                 -<?=$model->discount ?: 35?>
                             </div>
                         <?php endif;?>
-                        <?php if($model->present()->isInSegment('tovary-s-podarkom')):?>
+                        <?php if($model->isInSegment('tovary-s-podarkom')):?>
                             <div class="label-flag label-red">
                                 <img src="/resources/images/icons/gift.png" alt="">
                             </div>
