@@ -18,7 +18,7 @@ use yii\helpers\Html;
     </a>
     <!-- кустарно, дальше переделать -->
     <a href="/<?=$model->present()->getUrl()?>" class="product-card__title-link">
-        <h3 class="product-card__title"><?=$model->getParentWithVariantName()?></h3>
+        <h3 class="product-card__title"><?= Html::encode($model->name) ?></h3>
     </a>
     <ul class="product-card__params ul-reset">
     <!-- кустарно, дальше переделать -->
