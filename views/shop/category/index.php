@@ -29,7 +29,7 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
             'showPricesFilters' => false,
             'registerJsAssets' => false,
         ]) ?>
-        <?php if ($categories = ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all()): ?>
+        <?php if (0 && ($categories = ShopCategory::find()->roots()->one()->getChildren()->andWhere(['status' => 1])->all())) : ?>
             <div class="list-group mt-5">
                 <?php foreach ($categories as $category): ?>
                     <a class="list-group-item list-group-item-action" href="<?=$category->present()->getUrl()?>"><?= $category->name ?></a>

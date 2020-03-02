@@ -8,16 +8,11 @@ use yii\helpers\Html;
 ?>
 
 <div class="product-card">
-    <?php if(0):?>
-        <div class="product-card__label product-card__label--discount">
-            <div>скидка</div>
-        </div>
-    <?php endif;?>
-    <a href="/<?=$model->present()->getUrl()?>">
-        <img class="product-card__img" src="<?=$model->media ? $model->media->image() : 'https://via.placeholder.com/150' ?>" alt="<?= Html::encode($model->name) ?>">
+    <a href="<?=$model->present()->getUrl()?>">
+        <img class="product-card__img" src="<?=$model->media ? $model->media->image() : 'https://via.placeholder.com/350' ?>" alt="<?= Html::encode($model->name) ?>">
     </a>
     <!-- кустарно, дальше переделать -->
-    <a href="/<?=$model->present()->getUrl()?>" class="product-card__title-link">
+    <a href="<?=$model->present()->getUrl()?>" class="product-card__title-link">
         <h3 class="product-card__title"><?= Html::encode($model->name) ?></h3>
     </a>
     <ul class="product-card__params ul-reset">
@@ -32,7 +27,6 @@ use yii\helpers\Html;
         </div>
     <?php endif;?>
     <div class="product-card__price">Цена: <b><?=Yii::$app->formatter->asCurrency($model->price)?></b></div>
-
     <div class="product-card__actions">
         <?=\common\modules\shop\widgets\cart\addToCart\AddToCartWidget::widget([
                 'htmlOptions' => ['class' => 'product-card__to-cart btn btn-lg btn-block btn-primary'],
@@ -42,7 +36,6 @@ use yii\helpers\Html;
                     </svg>',
                 'model' => $model
         ]) ?>
-
         <button class="product-card__to-favorites btn btn-lg btn-outline-secondary">
             <span class="sr-only">В избранное</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
