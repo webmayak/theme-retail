@@ -1,17 +1,19 @@
 <?php
-/**
- * @var \common\modules\shop\components\order\OrderFormInterface $model
- * @var \common\modules\shop\components\cart\CartObjectItem[] $items
- * @var \common\modules\shop\components\order\OrderFormConstructor $constructor
- */
 
+use common\modules\shop\widgets\cart\changeInCart\ChangeInCartWidget;
 use yii\helpers\Html;
 use yii\widgets\Pjax;
+
 $this->title = "Корзина";
 
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
 $this->params['breadcrumbs'][] = $this->title;
 
+/**
+ * @var \common\modules\shop\components\order\OrderFormInterface $model
+ * @var \common\modules\shop\components\cart\CartObjectItem[] $items
+ * @var \common\modules\shop\components\order\OrderFormConstructor $constructor
+ */
 ?>
 
 <?php Pjax::begin(['id' => 'cart']) ?>
@@ -39,21 +41,21 @@ $this->params['breadcrumbs'][] = $this->title;
                             <?= $item->title ?>
                         </span>
                     </td>
-                    <td>
-                    <?=\common\modules\shop\widgets\cart\changeInCart\ChangeInCartWidget::widget([
-                        'htmlOptions' => ['class' => 'cart-table__item-quantity quantity-field button-plus'],
+                    <td style="display: flex; padding-top: 30px;">
+                    <?= ChangeInCartWidget::widget([
+                        'htmlOptions' => ['class' => 'cart-table__item-quantity quantity-field button-minus'],
                         'model' => $item,
-                        'content' => 'плюс',
-                        'action' => 'count-plus'
+                        'content' => '-',
+                        'action' => 'count-minus'
                     ]) ?>
-                    <span class="cart-table__item-count">
+                    <span class="cart-table__item-count" style="padding: 3px 15px 0;">
                         <?= $item->count ?>
                     </span>
                     <?=\common\modules\shop\widgets\cart\changeInCart\ChangeInCartWidget::widget([
-                        'htmlOptions' => ['class' => 'cart-table__item-quantity quantity-field button-minus'],
+                        'htmlOptions' => ['class' => 'cart-table__item-quantity quantity-field button-plus'],
                         'model' => $item,
-                        'content' => 'минус',
-                        'action' => 'count-minus'
+                        'content' => '+',
+                        'action' => 'count-plus'
                     ]) ?>
                     </td>
                     <td>

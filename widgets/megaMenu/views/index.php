@@ -1,21 +1,10 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: singletonn
- * Date: 10/8/18
- * Time: 12:02 PM
- */
 
-use common\modules\catalog\models\CatalogCategory;
-use pantera\leads\widgets\form\LeadForm;
+use common\modules\shop\widgets\cart\miniCart\MiniCartWidget;
 use yii\helpers\Url;
 use yii\web\View;
 
 /* @var $this View */
-/* @var $catalogRoot CatalogCategory */
-/* @var $servicesRoot CatalogCategory */
-/* @var $calculatorRoot CatalogCategory */
-/* @var $category CatalogCategory */
 ?>
 <div class="megamenu clearfix">
     <div class="container">
@@ -59,6 +48,7 @@ use yii\web\View;
                         Контакты
                     </a>
                 </li>
+                <?php if (0) : ?>
                 <li>
                     <a class="navicon" href="<?= Url::to(['/favorite']) ?>">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
@@ -75,10 +65,11 @@ use yii\web\View;
                         <span class="sr-only">Сравнение</span>
                     </a>
                 </li>
+                <?php endif; ?>
                 <li class="active">
-                    <?=\common\modules\shop\widgets\cart\miniCart\MiniCartWidget::widget([
+                    <?= MiniCartWidget::widget([
                         'content' => 'Корзина',
-                    ])?>
+                    ]) ?>
                 </li>
             </ul>
         </nav>

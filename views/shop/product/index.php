@@ -1,37 +1,32 @@
 <?php
-/**
- * @var $model \common\modules\shop\models\ShopProduct
- */
 
-use pantera\reviews\widgets\form\ReviewForm;
-use pantera\reviews\widgets\LatestReviews;
-use pantera\reviews\widgets\ReviewsList;
+use common\modules\shop\widgets\cart\addToCart\AddToCartWidget;
+use pantera\media\widgets\syncedOwls\SyncedOwls;
+use yii\data\ActiveDataProvider;
+use yii\widgets\ListView; 
 use yii\helpers\ArrayHelper;
 use yii\helpers\Html;
 
-?>
-
-<?php
+$this->title = $model->name;
 
 $this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
-
 $parents = $model->category->parents;
 unset($parents[0]);
 foreach ($parents as $parent) {
     $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => $parent->present()->getUrl()];
 }
-
 $this->params['breadcrumbs'][] = ['label' => $model->category->name, 'url' => $model->category->present()->getUrl()];
-
 //if ($model->brand) {
 //    $this->params['breadcrumbs'][] = [
 //        'label' => $model->brand->name,
 //        'url' => $model->category->present()->getUrl() . str_replace('brands', '', $model->brand->slug)
 //    ];
 //}
-
-$this->title = $model->name;
 $this->params['breadcrumbs'][] = $this->title;
+
+/**
+ * @var $model \common\modules\shop\models\ShopProduct
+ */
 ?>
 <div class="product">
     <div class="row">
@@ -43,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     : $model->attachments;
                 ?>
                 <?php if ($attachments): ?>
-                <?= \pantera\media\widgets\syncedOwls\SyncedOwls::widget([
+                <?= SyncedOwls::widget([
                     'models' => $attachments,
                     'containerOptions' => [
                         'data' => [
@@ -70,76 +65,8 @@ $this->params['breadcrumbs'][] = $this->title;
         </div>
         <div class="col-lg-6 product__overall">
             <h1 class="mb-4"><?= $model->name ?></h1>
-
-            <?php if(0):?>
-            <div class="product__ratings">
-                <div class="product-rating-form rating-inline">
-                    <?php if($myRate = Yii::$app->getModule('shop')->rating->getMyRate($model)):?>
-                        <div class="product-interactive rating-inline">
-                            <div class="rating-inline__label">
-                                Оценено:
-                            </div>
-                            <div class="product-rating product-rating-<? $myRate?> d-flex">
-                                <div class="product-rating__holder">
-                                    <div class="product-rating__total"></div>
-                                </div>
-                            </div>
-                        </div>
-                    <?php else:?>
-                        <div class="rating-inline__label">
-                            Оценить
-                        </div>
-                        <form action="/shop/products/rate?product_id=<?=$model->id?>" class="product-rating-form__form">
-                            <input type="radio" value="5" id="r-5" name="product-rating">
-                            <label for="r-5" class="product-rating-form__value"></label>
-                            <input type="radio" value="4" id="r-4" name="product-rating">
-                            <label for="r-4" class="product-rating-form__value"></label>
-                            <input type="radio" value="3" id="r-3" name="product-rating">
-                            <label for="r-3" class="product-rating-form__value"></label>
-                            <input type="radio" value="2" id="r-2" name="product-rating">
-                            <label for="r-2" class="product-rating-form__value"></label>
-                            <input type="radio" value="1" id="r-1" name="product-rating">
-                            <label for="r-1" class="product-rating-form__value"></label>
-                        </form>
-                    <?php endif;?>
-                </div>
-                <div class="product-interactive rating-inline">
-                    <div class="rating-inline__label">
-                        Голосов:
-                    </div>
-                    <div class="product-rating product-rating-<?=Yii::$app->rating->getRateValue($model) ?> d-flex">
-                        <div class="product-rating__holder">
-                            <div class="product-rating__total"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <?php endif;?>
-
             <div class="panel panel-default product__panel mb-4">
                 <div class="panel-body">
-                    <div class="card-header__labels">
-                        <?php if($model->isInSegment('novinki')):?>
-                            <div class="label-flag label-green">
-                                NEW
-                            </div>
-                        <?php endif;?>
-                        <?php if($model->isInSegment('hity-prodazh')):?>
-                            <div class="label-flag label-blue">
-                                ХИТ
-                            </div>
-                        <?php endif;?>
-                        <?php if($model->isInSegment('skidki')):?>
-                            <div class="label-flag label-purple">
-                                -<?=$model->discount ?: 35?>
-                            </div>
-                        <?php endif;?>
-                        <?php if($model->isInSegment('tovary-s-podarkom')):?>
-                            <div class="label-flag label-red">
-                                <img src="/resources/images/icons/gift.png" alt="">
-                            </div>
-                        <?php endif;?>
-                    </div>
                     <div class="product-price detail-price" data-id="43009">
                         <?php if ($oldPrioce = $model->present()->getOlPriceFormat()) : ?>
                             <div class="product-price__old">
@@ -159,15 +86,6 @@ $this->params['breadcrumbs'][] = $this->title;
                             </div>
                         <?php endif; ?>
                     </div>
-                    <?php if (0) { ?>
-                        <?= \common\modules\shop\widgets\productSelect\ProductSelect::widget([
-                           'model' => $model,
-                        ]); ?>
-                        <?=\common\modules\shop\widgets\cart\miniCart\MiniCartWidget::widget([
-                            'content' => 'Корзина',
-                        ])?>
-                    <?php } ?>
-
                 </div>
             </div>
 
@@ -181,7 +99,7 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="product-actions">
-                <?=\common\modules\shop\widgets\cart\addToCart\AddToCartWidget::widget([
+                <?= AddToCartWidget::widget([
                     'htmlOptions' => ['class' => 'product-actions__to-cart btn btn-lg btn-block btn-primary'],
                     'content' => 'В корзину
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
@@ -189,6 +107,7 @@ $this->params['breadcrumbs'][] = $this->title;
                         </svg>',
                     'model' => $model
                 ]) ?>
+                <?php if (0) : ?>
                 <button class="product-card__to-favorites btn btn-lg btn-outline-secondary">
                     <span class="sr-only">В избранное</span>
                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor">
@@ -201,8 +120,8 @@ $this->params['breadcrumbs'][] = $this->title;
                         <use xlink:href="/images/sprite.svg#icon-graph"></use>
                     </svg>
                 </button>
+                <?php endif; ?>
             </div>
-
         </div>
     </div>
 
@@ -239,7 +158,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                 <?php endif;?>
-
                 <?php if ($model->full_description) : ?>
                     <div class="product__info-section mb-4">
                         <div class="h2">
@@ -250,7 +168,6 @@ $this->params['breadcrumbs'][] = $this->title;
                         </div>
                     </div>
                 <?php endif; ?>
-
             </div>
             <div class="col-xxl-3 col-xl-4 col-lg-5">
                 <ul class="product-aside ul-reset">
@@ -284,29 +201,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 </ul>
             </div>
         </div>
-
-        <?php if(0):?>
-            <?= ReviewForm::widget([
-                'model' => $model,
-            ]) ?>
-            <?= LatestReviews::widget([
-                'model' => $model,
-            ]) ?>
-            <?= ReviewsList::widget([
-                'model' => $model,
-            ]) ?>
-        <?php endif;?>
-
     </div>
 
-    <?php if($model->smilar_products):?>
+    <?php if ($model->smilar_products) : ?>
         <div class="block">
             <h2 class="block__header">
                 Похожие товары
             </h2>
             <div>
-                <?= \yii\widgets\ListView::widget([
-                    'dataProvider' => new \yii\data\ActiveDataProvider([
+                <?= ListView::widget([
+                    'dataProvider' => new ActiveDataProvider([
                         'query' => $model->getSmilarProductsQuery(),
                     ]),
                     'layout' => '{items}',
@@ -321,16 +225,16 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]) ?>
             </div>
         </div>
-    <?php endif;?>
+    <?php endif; ?>
 
-    <?php if($model->will_need_products):?>
+    <?php if ($model->will_need_products) : ?>
         <div class="block">
             <h2 class="block__header">
                 Это вам пригодится
             </h2>
             <div>
-                <?= \yii\widgets\ListView::widget([
-                    'dataProvider' => new \yii\data\ActiveDataProvider([
+                <?= ListView::widget([
+                    'dataProvider' => new ActiveDataProvider([
                         'query' => $model->getWillNeedProductsQuery(),
                     ]),
                     'layout' => '{items}',
@@ -345,81 +249,9 @@ $this->params['breadcrumbs'][] = $this->title;
                 ]) ?>
             </div>
         </div>
-    <?php endif;?>
+    <?php endif; ?>
 
     <div class="custom-content">
-        <?=$model->bottom_content?>
+        <?= $model->bottom_content ?>
     </div>
-
-    <?php if(0):?>
-        <div class="block">
-            <div class="block__header">
-                Документы
-            </div>
-            <div class="product__documents">
-                <div class="documents-list">
-                    <div class="documents-list__item">
-                        <div class="document">
-                            <div class="document__image">
-                                <img src="/resources/images/icons/pdf.png" alt="">
-                            </div>
-                            <div class="document__body">
-                                <div class="document__title">
-                                    <a href="javascript:void(0)" class="text-darkline">Инструкция в ЕС+</a>
-                                </div>
-                                <div class="document__size">
-                            <span class="text-gray">
-                                Размер: 2 Мб
-                            </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="documents-list__item">
-                        <div class="document">
-                            <div class="document__image">
-                                <img src="/resources/images/icons/pdf.png" alt="">
-                            </div>
-                            <div class="document__body">
-                                <div class="document__title">
-                                    <a href="javascript:void(0)" class="text-darkline">Технические характеристики</a>
-                                </div>
-                                <div class="document__size">
-                            <span class="text-gray">
-                                Размер: 2 Мб
-                            </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="documents-list__item">
-                        <div class="document">
-                            <div class="document__image">
-                                <img src="/resources/images/icons/pdf.png" alt="">
-                            </div>
-                            <div class="document__body">
-                                <div class="document__title">
-                                    <a class="document__link text-darkline" href="javascript:void(0)">Инструкция в ЕС+</a>
-                                </div>
-                                <div class="document__size">
-                            <span class="text-gray">
-                                Размер: 2 Мб
-                            </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    <?php endif;?>
-
-    <?php if (0) { ?>
-    <div class="block">
-        <?=\pantera\leads\widgets\form\LeadForm::widget([
-            'key' => 'request',
-            'mode' => \pantera\leads\widgets\form\LeadForm::MODE_INLINE
-        ]) ?>
-    </div>
-    <?php } ?>
-
+</div>
