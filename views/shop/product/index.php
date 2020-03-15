@@ -78,24 +78,32 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <span>Экономия: <?= $discount ?></span>
                             </div>
                         <?php endif; ?>
-                        <?php if ($price = $model->price) : ?>
-                            <div class="stacked-block">
-                                <div class="product-price__actual">
-                                    <span class="product-price__actualCount"><?= (integer) $price ?></span> руб. за 1 шт.
-                                </div>
+                        <div class="stacked-block">
+                            <div class="product-price__actual">
+                                <?php if ($model->price && $model->price != '0.00') : ?>
+                                    <span class="product-price__actualCount"><?= Yii::$app->formatter->asCurrency($model->price) ?></span> за 1 шт.
+                                <?php else : ?>
+                                    Под заказ
+                                <?php endif; ?>
                             </div>
-                        <?php endif; ?>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="product-status mb-4">
-                <div class="product-sku mb-4">
-                    <?php if($model->sku):?>
+                <?php if ($model->sku) : ?>
+                    <div class="product-sku mb-4">
                         Артикул: <?= $model->sku ?>
-                    <?php endif;?>
-                </div>
-                <?= $model->present()->getFormattedStatus() ?>
+                    </div>
+                <?php endif;?>
+                <?php if ($model->price && $model->price != '0.00') : ?>
+                    <?= $model->present()->getFormattedStatus() ?>
+                <?php else : ?>
+                    <div class="status text-warning">
+                        Наличие уточняйте у менеджера
+                    </div>
+                <?php endif; ?>
             </div>
 
             <div class="product-actions">
