@@ -1,10 +1,11 @@
 <?php
 
-use yii\helpers\Html;
 use common\modules\shop\widgets\cart\addToCart\AddToCartWidget;
+use common\modules\shop\models\ShopProduct;
+use yii\helpers\Html;
 
 /**
- * @var \common\modules\shop\models\ShopProduct $model
+ * @var ShopProduct $model
  */
 ?><div class="product-card">
     <a href="<?= $model->present()->getUrl() ?>">
@@ -14,7 +15,7 @@ use common\modules\shop\widgets\cart\addToCart\AddToCartWidget;
         <h3 class="product-card__title"><?= Html::encode($model->name) ?></h3>
     </a>
     <ul class="product-card__params ul-reset">
-        <div class="product-card__param-text" style="text-align: justify">
+        <div class="product-card__param-text">
             <?= $model->description ?>
         </div>
     </ul>
@@ -23,7 +24,14 @@ use common\modules\shop\widgets\cart\addToCart\AddToCartWidget;
             <del><?= Yii::$app->formatter->asCurrency($model->default_price) ?></del>
         </div>
     <?php endif; ?>
-    <div class="product-card__price">Цена: <b><?= Yii::$app->formatter->asCurrency($model->price) ?></b></div>
+    <div class="product-card__price">
+        Цена:
+        <?php if ($model->price && $model->price != '0.00') : ?>
+            <b><?= Yii::$app->formatter->asCurrency($model->price) ?></b>
+        <?php else : ?>
+            <b>Под заказ</b>
+        <?php endif; ?>
+    </div>
     <div class="product-card__actions">
         <?= AddToCartWidget::widget([
                 'htmlOptions' => ['class' => 'product-card__to-cart btn btn-lg btn-block btn-primary'],

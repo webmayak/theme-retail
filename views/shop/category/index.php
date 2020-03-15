@@ -2,12 +2,12 @@
 
 use common\modules\shop\widgets\productFilter\ProductFilter;
 use common\modules\shop\models\ShopCategory;
-use yii\widgets\ListView;
+use frontend\themes\retail\widgets\shopProducts\ProductsList;
 use yii\helpers\Html;
 
 $this->title = $model->name;
 
-$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog/index'];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
 foreach ($model->parents as $key => $parent) {
     if ($key == 0) continue;
     $this->params['breadcrumbs'][] = ['label' => $parent->name, 'url' => $parent->present()->getUrl()];
@@ -38,22 +38,8 @@ $dataProvider->pagination = ['defaultPageSize' => 12];
         <?php endif; ?>
     </div>
     <div class="col-lg-9 order-lg-2">
-        <?= ListView::widget([
+        <?= ProductsList::widget([
             'dataProvider' => $dataProvider,
-            'options' => [
-                'class' => 'products-list',
-            ],
-            'itemView' => '_view',
-            'itemOptions' => [
-                'class' => 'col-xl-4 col-lg-6 col-sm-6',
-            ],
-            'layout' => '{summary}<div class="row">{items}</div>{pager}',
-            'pager' => [
-                'class' => 'yii\bootstrap4\LinkPager',
-                'options' => [
-                    'class' => 'text-center',
-                ],
-            ],
         ]) ?>
     </div>
 </div>
