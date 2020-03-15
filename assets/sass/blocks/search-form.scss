@@ -43,13 +43,23 @@
   .tt-suggestion {
     padding: 12px 1rem;
     transition: background-color 0.25s;
+    white-space: normal !important;
 
     .tt-img {
       margin-right: 10px;
+      float: left;
+      vertical-align: top;
     }
 
     &:hover {
       background-color: #eeeeee;
+      cursor: pointer !important;
+    }
+
+    &:after {
+      content: "";
+      display: block;
+      clear: both;
     }
 
     > .tt-highlight {
