@@ -14,14 +14,12 @@ use yii\web\View;
                 $catalogIsActive = preg_match('/^shop/', Yii::$app->request->pathInfo);
                 ?>
                 <li class="all-categories-btn <?= $catalogIsActive ? 'active' : '' ?>" id="main-menu-catalog">
-                    <a href="<?= Url::to(['/shop/catalog']) ?>" class="navtext vsmenu-cat-toggle">
+                    <a href="<?= Url::to(['/shop/catalog/index']) ?>" class="navtext vsmenu-cat-toggle">
                         Все категории
                     </a>
-                    <?php if ( Url::toRoute( Yii::$app->controller->getRoute() ) != '/content/content/view/index' ) : ?>
-                        <div class="all-categories-btn__dropdown">
-                            <?= $this->render('@theme/views/_catalog-menu') ?>
-                        </div>
-                    <?php endif; ?>
+                    <div class="all-categories-btn__dropdown">
+                        <?= $this->render('@theme/views/_catalog-menu') ?>
+                    </div>
                 </li>
                 <li class="<?= preg_match('/^payment-delivery$/', Yii::$app->request->pathInfo) ? 'active' : '' ?>">
                     <a class="navtext" href="<?= Url::to(['/payment-delivery']) ?>">
