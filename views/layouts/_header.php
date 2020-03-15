@@ -35,6 +35,7 @@ use pantera\leads\widgets\form\LeadForm;
                     </a>
                 </div>
             </div>
+            <?php if (0) : ?>
             <div class="col-sm-auto ml-xl-5">
                 <div class="pre-header__user d-flex align-items-center">
                     <div class="pre-header__user-avatar">
@@ -46,6 +47,7 @@ use pantera\leads\widgets\form\LeadForm;
                     </div>
                 </div>
             </div>
+            <?php endif; ?>
         </div>
     </div>
 </div>
