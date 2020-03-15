@@ -66,6 +66,7 @@ initShare();
  */
 $(document).on('pjax:complete', function () {
     initPopover();
+    $('.quantity-field').styler();
 });
 
 $.goup({
@@ -73,13 +74,8 @@ $.goup({
 });
 
 $(document).ready(function () {
-
     svg4everybody();
-
-    setTimeout(function () {
-        $('.quantity-field').styler();
-    }, 100);
-
+    $('.quantity-field').styler();
 });
 
 $(document).on('click', '.open-lead-modal', function () {
