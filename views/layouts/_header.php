@@ -19,6 +19,11 @@ use pantera\leads\widgets\form\LeadForm;
                 </div>
             </div>
             <div class="col-sm-auto ml-xl-5 mb-3 mb-sm-0">
+                <div class="pre-header__city">
+                    Город: <a href="/contacts">Липецк</a>
+                </div>
+            </div>
+            <div class="col-sm-auto ml-xl-5 mb-3 mb-sm-0">
                 <div class="pre-header__contact-item">
                     <div class="pre-header__contact-item-icon">
                         <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
@@ -28,11 +33,6 @@ use pantera\leads\widgets\form\LeadForm;
                     <a class="pre-header__contact-item-text" href="tel:<?= Yii::$app->contactsManager->get('phone_city') ?>">
                         <?= Yii::$app->contactsManager->get('phone_city') ?>
                     </a>
-                </div>
-            </div>
-            <div class="col-sm-auto ml-xl-5 mb-3 mb-sm-0">
-                <div class="pre-header__city">
-                    Город: <a href="">Липецк</a>
                 </div>
             </div>
             <div class="col-sm-auto ml-xl-5">
