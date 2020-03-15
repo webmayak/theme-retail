@@ -9,7 +9,7 @@ use yii\helpers\Html;
 
 $this->title = $model->name;
 
-$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => '/shop/catalog'];
+$this->params['breadcrumbs'][] = ['label' => 'Каталог', 'url' => ['/shop/catalog/index']];
 $parents = $model->category->parents;
 unset($parents[0]);
 foreach ($parents as $parent) {
@@ -100,7 +100,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <div class="product-actions">
                 <?= AddToCartWidget::widget([
-                    'htmlOptions' => ['class' => 'product-actions__to-cart btn btn-lg btn-block btn-primary'],
+                    'htmlOptions' => ['class' => 'product-actions__to-cart btn btn-lg btn-primary'],
                     'content' => 'В корзину
                         <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor">
                             <use xlink:href="/images/sprite.svg#icon-cart"></use>

@@ -1,10 +1,11 @@
 <?php
 
+use common\modules\shop\widgets\search\Search;
+use pantera\content\widgets\block\Block;
+use pantera\leads\widgets\form\LeadForm;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\web\View;
-use pantera\content\widgets\block\Block;
-use pantera\leads\widgets\form\LeadForm;
 
 /* @var $this View */
 ?>
@@ -65,9 +66,9 @@ use pantera\leads\widgets\form\LeadForm;
                 </a>
             </div>
             <div class="col-lg-6 order-lg-0 order-3 mt-4 mt-lg-0">
-                <form class="search-form" action="<?= Url::to(['/shop/search']) ?>">
+                <form class="search-form" action="<?= Url::to(['/search']) ?>">
                     <div class="input-group input-group-lg">
-                        <?= \common\modules\shop\widgets\search\Search::widget(); ?>
+                        <?= Search::widget(); ?>
                         <div class="input-group-append">
                             <button type="submit" class="search-form__submit btn btn-primary"><span class="sr-only">Поиск</span></button>
                         </div>
