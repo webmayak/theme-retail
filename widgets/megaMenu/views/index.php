@@ -65,9 +65,13 @@ use yii\web\View;
                 </li>
                 <?php endif; ?>
                 <li class="active">
-                    <?= MiniCartWidget::widget([
-                        'content' => 'Корзина',
-                    ]) ?>
+                    <?= MiniCartWidget::widget(['layout' => '<a class="navicon" href="{url}">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" aria-hidden="true" role="presentation" focusable="false">
+                            <use xlink:href="/images/sprite.svg#icon-cart"/>
+                        </svg>
+                        <span class="sr-only">Корзина</span>
+                        <span id="minicart-count-value" class="menu-cart-count">{count}</span>
+                    </a>']) ?>
                 </li>
             </ul>
         </nav>
