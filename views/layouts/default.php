@@ -10,7 +10,7 @@ use yii\helpers\Url;
 if ((Yii::$app->controller->id === 'site' && Yii::$app->controller->action->id === 'error') === false) {
     $this->registerLinkTag([
         'rel' => 'canonical',
-        'href' => Url::canonical(),
+        'href' => Url::to([preg_replace('/\?.*$/', '', Yii::$app->request->url)], true),
     ]);
 }
 $this->registerLinkTag([
