@@ -70,7 +70,7 @@ use yii\web\View;
                             <use xlink:href="/images/sprite.svg#icon-cart"/>
                         </svg>
                         <span class="sr-only">Корзина</span>
-                        <span id="minicart-count-value" class="menu-cart-count">{count}</span>
+                        <span class="menu-cart-count" data-behavior="cart-count-value">{count}</span>
                     </a>']) ?>
                 </li>
             </ul>
