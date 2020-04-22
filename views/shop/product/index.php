@@ -92,9 +92,14 @@ $this->params['breadcrumbs'][] = $this->title;
             </div>
 
             <div class="product-status mb-4">
+                <?php if ($model->brand_id) : ?>
+                    <div class="product-sku mb-4">
+                        Производитель: <?= Html::encode($model->brand->name) ?>
+                    </div>
+                <?php endif;?>
                 <?php if ($model->sku) : ?>
                     <div class="product-sku mb-4">
-                        Артикул: <?= $model->sku ?>
+                        Артикул: <?= Html::encode($model->sku) ?>
                     </div>
                 <?php endif;?>
                 <?php if ($model->price && $model->price != '0.00') : ?>
