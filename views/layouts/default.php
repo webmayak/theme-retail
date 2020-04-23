@@ -2,6 +2,7 @@
 
 use frontend\themes\retail\AppAsset;
 use frontend\widgets\megaMenu\MegaMenu;
+use common\modules\shop\widgets\cart\miniCart\MiniCartWidget;
 use frontend\widgets\twigRender\TwigRender;
 use pantera\leads\widgets\form\LeadForm;
 use yii\helpers\Html;
@@ -172,6 +173,14 @@ $this->beginPage();
             <a href="<?= Url::to(['/contacts']) ?>">
                 Контакты
             </a>
+        </li>
+        <li>
+            <?= MiniCartWidget::widget([
+                'layout' => '<a href="{url}">
+                            <span>Корзина</span>
+                            <span class="mmenu-count" data-behavior="cart-count-value">{count}</span>
+                        </a>',
+            ])?>
         </li>
     </ul>
 </nav>
