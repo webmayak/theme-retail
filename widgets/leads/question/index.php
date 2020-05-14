@@ -15,7 +15,7 @@ use yii\widgets\MaskedInput;
 /* @var $this View */
 /* @var $key string */
 /* @var $model LeadQuestion */
-$this->title = 'ЗАПИСАТЬСЯ ONLINE';
+$this->title = 'Задать вопрос';
 
 $form = ActiveForm::begin([
     'id' => 'lead-question-form',
